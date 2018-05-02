@@ -20,4 +20,5 @@ void main() {
     printf("Partidas ganadas: %d", retornaPartidasGanadas(j));
     printf("carta maxima bot: %d", retornaCartaMaxima(b.numero, b));
 
+    ffffff;
 }
