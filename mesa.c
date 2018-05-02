@@ -3,4 +3,6 @@
 //
 
 
-ffffffff
+int pideCarta(){
+    return int;
+}
