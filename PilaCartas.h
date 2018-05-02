@@ -18,5 +18,6 @@ void PILA_pop(Pila *p);
 int PILA_top(Pila p);
 int PILA_vacia(Pila p);
 void PILA_destruye(Pila *p);
+int dameCarta();
 
 #endif //BLACKJACK_PILACARTAS_H
