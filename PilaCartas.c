@@ -1,4 +1,6 @@
 #include "PilaCartas.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 Pila PILA_crea() {
