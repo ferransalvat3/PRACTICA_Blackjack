@@ -16,6 +16,7 @@ int compruebaBlackJack(int valor){
     } else{
         return 0;
     }
+
 }
 
 int compruebaManos(int resultadoJugador, int resultadoCroupier){
