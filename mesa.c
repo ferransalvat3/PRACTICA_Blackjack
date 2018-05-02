@@ -3,6 +3,5 @@
 //
 
 
-int pideCarta(){
-    return int;
-}
+#include "bot.h"
+
