@@ -52,7 +52,7 @@ void main() {
         mano[posicionmano-1] = dameCarta();
         resultado = resultado + mano[posicionmano-1];
         for (i = 0; i < posicionmano; i++) {
-            printf("En la mano tienes:%i", mano[i]);
+            printf("En la mano tienes:%i\n", mano[i]);
         }
         printf("\nTienes un valor de %i", resultado);
         if(compruebaBlackJack(resultado)==1){
