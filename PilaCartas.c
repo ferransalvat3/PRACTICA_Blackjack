@@ -66,8 +66,8 @@ void PILA_destruye(Pila *p) {
 int dameCarta(){
     int baraja[30];
     int i=0;
+
     for(i=0; i<30;i++){
-        srand(time(NULL));
         baraja[i] = rand()%11;
     }
 
