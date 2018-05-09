@@ -83,29 +83,31 @@ void main() {
     printf("Turno del crupier");
     posicionmano=2;
     do{
-        if(resultadoCroupier<=resultado) {
-            if (resultado >= 17) {
-                posicionmano++;
-                manocroupier[posicionmano - 1] = dameCarta();
-                resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
-                for (i = 0; i < posicionmano; i++) {
-                    printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
+        if (juegoCrupier!=0) {
+            if (resultadoCroupier <= resultado) {
+                if (resultado >= 17) {
+                    posicionmano++;
+                    manocroupier[posicionmano - 1] = dameCarta();
+                    resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
+                    for (i = 0; i < posicionmano; i++) {
+                        printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
+                    }
+                    if (teHasPasado(resultadoCroupier) == 1) {
+                        printf("\nEl croupier se ha pasado, enhorabuena has ganado");
+                        noSePidenMasCartas = 1;
+                        juegoCrupier = 0;
+                    }
+                    if (compruebaBlackJack(resultado) == 1) {
+                        printf("\nBlackjack del crupier, has perdido");
+                        noSePidenMasCartas = 1;
+                        juegoCrupier = 0;
+                    }
+                    printf("\nEl crupier tiene un valor de %i", resultadoCroupier);
                 }
-                if (teHasPasado(resultadoCroupier) == 1) {
-                    printf("\nEl croupier se ha pasado, enhorabuena has ganado");
-                    noSePidenMasCartas = 1;
-                    juegoCrupier = 0;
-                }
-                if (compruebaBlackJack(resultado) == 1) {
-                    printf("\nBlackjack del crupier, has perdido");
-                    noSePidenMasCartas=1;
-                    juegoCrupier=0;
-                }
-                printf("\nEl crupier tiene un valor de %i", resultadoCroupier);
+            } else if (resultadoCroupier > resultado) {
+                noSePidenMasCartas = 0;
+                juegoCrupier = 0;
             }
-        } else if(resultadoCroupier>resultado){
-            noSePidenMasCartas=0;
-            juegoCrupier=0;
         }
 
     }while (juegoCrupier==1);
