@@ -20,6 +20,7 @@ void main() {
     int resultadoCroupier=0;
     int partidaEnJuego=1;
     int noSePidenMasCartas=0;
+    int juegoCrupier=1;
 
     j.fichas = 50;
     j.manos_ganadas=8;
@@ -48,8 +49,6 @@ void main() {
     manocroupier[1]= 11;
     resultadoCroupier = resultadoCroupier+manocroupier[1];
 
-
-
     int i=0;
 
     do{
@@ -58,36 +57,58 @@ void main() {
         if (strcmp("no", respuesta) !=0) {
             posicionmano++;
             mano[posicionmano - 1] = dameCarta();
-            manocroupier[posicionmano - 1] = dameCarta();
             resultado = resultado + mano[posicionmano - 1];
-            resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
             for (i = 0; i < posicionmano; i++) {
                 printf("En la mano tienes:%i\n", mano[i]);
-            }
-            for (i = 0; i < posicionmano; i++) {
-                printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
             }
             printf("\nTienes un valor de %i", resultado);
             if (compruebaBlackJack(resultado) == 1) {
                 printf("\nENHORABUENA! TIENES BLACKJACK!");
                 noSePidenMasCartas=1;
                 partidaEnJuego=0;
+                juegoCrupier=0;
             }
             if (teHasPasado(resultado) == 1) {
-                printf("\nTe has pasado, loser");
+                printf("\nTe has pasado, loser\n");
                 noSePidenMasCartas=1;
                 partidaEnJuego=0;
-            }
-            if (teHasPasado(resultadoCroupier) == 1) {
-                printf("\nEl croupier se ha pasado, enhorabuena has ganado");
-                noSePidenMasCartas=1;
-                partidaEnJuego=0;
+                juegoCrupier=0;
             }
         } else{
             partidaEnJuego =0;
         }
 
     }while (partidaEnJuego!=0);
+
+    printf("Turno del crupier");
+    posicionmano=2;
+    do{
+        if(resultadoCroupier<=resultado) {
+            if (resultado >= 17) {
+                posicionmano++;
+                manocroupier[posicionmano - 1] = dameCarta();
+                resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
+                for (i = 0; i < posicionmano; i++) {
+                    printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
+                }
+                if (teHasPasado(resultadoCroupier) == 1) {
+                    printf("\nEl croupier se ha pasado, enhorabuena has ganado");
+                    noSePidenMasCartas = 1;
+                    juegoCrupier = 0;
+                }
+                if (compruebaBlackJack(resultado) == 1) {
+                    printf("\nBlackjack del crupier, has perdido");
+                    noSePidenMasCartas=1;
+                    juegoCrupier=0;
+                }
+                printf("\nEl crupier tiene un valor de %i", resultadoCroupier);
+            }
+        } else if(resultadoCroupier>resultado){
+            noSePidenMasCartas=0;
+            juegoCrupier=0;
+        }
+
+    }while (juegoCrupier==1);
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
