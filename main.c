@@ -40,9 +40,9 @@ void main() {
 
 
     srand(time(NULL));
-    mano[0]= dameCarta();
+    mano[0]= dameCarta(&b);
     resultado = mano[0];
-    mano[1] = dameCarta();
+    mano[1] = dameCarta(&b);
     resultado = resultado + mano[1];
     printf("Cuantas fichas vas a apostar?");
     scanf("%d", &apuestaJugador);
@@ -69,7 +69,7 @@ void main() {
         scanf("%s", respuesta);
         if (strcmp("no", respuesta) !=0) {
             posicionmano++;
-            mano[posicionmano - 1] = dameCarta();
+            mano[posicionmano - 1] = dameCarta(&b);
             resultado = resultado + mano[posicionmano - 1];
             for (i = 0; i < posicionmano; i++) {
                 printf("En la mano tienes:%i\n", mano[i]);
@@ -100,7 +100,7 @@ void main() {
             if (resultadoCroupier <= resultado) {
                 if (resultado >= 17) {
                     posicionmano++;
-                    manocroupier[posicionmano - 1] = dameCarta();
+                    manocroupier[posicionmano - 1] = dameCarta(&b);
                     resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
                     for (i = 0; i < posicionmano; i++) {
                         printf("El crupier en la mano tiene:%i\n", manocroupier[i]);

@@ -27,7 +27,7 @@ Baralles barallaCrea(int numbaralles){
     srand(time(NULL));
     for (i=0; i<b.numCartes; i++){
         barallaRand = rand() % (b.numCartes);
-        PILA_push(*b.p, barallaOrd[barallaRand]);
+        PILA_push(b.p, barallaOrd[barallaRand]);
     }
 
     return b;
@@ -36,9 +36,10 @@ Baralles barallaCrea(int numbaralles){
 
 
 int dameCarta(Baralles *b){
-
     if (PILA_vacia(b->p)){
         return PILA_pop(b->p);
-    }else return 0;
+    }else {
+        return 0;
+    }
 
 }
