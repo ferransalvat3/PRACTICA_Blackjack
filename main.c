@@ -22,6 +22,7 @@ void main() {
     int partidaEnJuego=1;
     int noSePidenMasCartas=0;
     int juegoCrupier=1;
+    int apuestaJugador=0;
 
     j.fichas = 50;
     j.manos_ganadas=8;
@@ -42,7 +43,17 @@ void main() {
     resultado = mano[0];
     mano[1] = dameCarta();
     resultado = resultado + mano[1];
+    printf("Cuantas fichas vas a apostar?");
+    scanf("%d", &apuestaJugador);
 
+
+    while (compruebaFichasJugador(j, apuestaJugador)==0){
+        printf("No puedes apostar, no tienes tantas fichas, indica una nueva cantidad");
+        scanf("%d", &apuestaJugador);
+    }
+
+    j.fichas= j.fichas-apuestaJugador;
+    printf("Te quedan: %d fichas", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i", mano[0], mano[1]);
 
     manocroupier[0]= 3;
@@ -54,7 +65,7 @@ void main() {
 
     do{
         printf("\nQuieres pedir carta?");
-        gets(respuesta);
+        scanf("%s", respuesta);
         if (strcmp("no", respuesta) !=0) {
             posicionmano++;
             mano[posicionmano - 1] = dameCarta();
@@ -67,13 +78,13 @@ void main() {
                 printf("\nENHORABUENA! TIENES BLACKJACK!");
                 noSePidenMasCartas=1;
                 partidaEnJuego=0;
-                juegoCrupier=0;
+                //juegoCrupier=0;
             }
             if (teHasPasado(resultado) == 1) {
                 printf("\nTe has pasado, loser\n");
                 noSePidenMasCartas=1;
                 partidaEnJuego=0;
-                juegoCrupier=0;
+                //juegoCrupier=0;
             }
         } else{
             partidaEnJuego =0;
@@ -84,7 +95,7 @@ void main() {
     printf("Turno del crupier");
     posicionmano=2;
     do{
-        if (juegoCrupier!=0) {
+        //if (juegoCrupier!=0) {
             if (resultadoCroupier <= resultado) {
                 if (resultado >= 17) {
                     posicionmano++;
@@ -109,7 +120,7 @@ void main() {
                 noSePidenMasCartas = 0;
                 juegoCrupier = 0;
             }
-        }
+      //  }
 
     }while (juegoCrupier==1);
 
