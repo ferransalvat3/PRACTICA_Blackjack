@@ -2,12 +2,14 @@
 // Created by Ferran Salvat on 14/5/18.
 //
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "barajas.h"
 #include "PilaCartas.h"
 
 
 
-Baralles barallaCrea(int numbaralles, Pila *p){
+Baralles barallaCrea(int numbaralles){
     Baralles b;
     int i = 0, j=0;
     int barallaRand;
@@ -22,7 +24,7 @@ Baralles barallaCrea(int numbaralles, Pila *p){
         j++;
     }
 
-    srand (time(NULL));
+    srand(time(NULL));
     for (i=0; i<b.numCartes; i++){
         barallaRand = rand() % (b.numCartes);
         PILA_push(*b.p, barallaOrd[barallaRand]);
@@ -35,12 +37,8 @@ Baralles barallaCrea(int numbaralles, Pila *p){
 
 int dameCarta(Baralles *b){
 
-    if (PILA_vacia(b.p)){
-        return PILA_pop(b.p);
-    }else {
-        return 0;
-    }
-
-
+    if (PILA_vacia(b->p)){
+        return PILA_pop(b->p);
+    }else return 0;
 
 }
