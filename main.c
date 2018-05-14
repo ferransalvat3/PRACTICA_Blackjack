@@ -77,13 +77,13 @@ void main() {
                 printf("\nENHORABUENA! TIENES BLACKJACK!");
                 noSePidenMasCartas=1;
                 partidaEnJuego=0;
-                juegoCrupier=0;
+                //juegoCrupier=0;
             }
             if (teHasPasado(resultado) == 1) {
                 printf("\nTe has pasado, loser\n");
                 noSePidenMasCartas=1;
                 partidaEnJuego=0;
-                juegoCrupier=0;
+                //juegoCrupier=0;
             }
         } else{
             partidaEnJuego =0;
@@ -94,7 +94,7 @@ void main() {
     printf("Turno del crupier");
     posicionmano=2;
     do{
-        if (juegoCrupier!=0) {
+        //if (juegoCrupier!=0) {
             if (resultadoCroupier <= resultado) {
                 if (resultado >= 17) {
                     posicionmano++;
@@ -119,7 +119,7 @@ void main() {
                 noSePidenMasCartas = 0;
                 juegoCrupier = 0;
             }
-        }
+      //  }
 
     }while (juegoCrupier==1);
 
