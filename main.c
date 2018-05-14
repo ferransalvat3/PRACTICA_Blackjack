@@ -13,6 +13,7 @@
 void main() {
     Jugador j;
     Bot b;
+    Baralles c;
     strcpy(j.nombre,"fefe");
     char respuesta[2];
     int posicionmano=2;
@@ -24,6 +25,7 @@ void main() {
     int noSePidenMasCartas=0;
     int juegoCrupier=1;
     int apuestaJugador=0;
+    int numbaralles = 0;
 
     j.fichas = 50;
     j.manos_ganadas=8;
@@ -40,9 +42,14 @@ void main() {
 
 
     srand(time(NULL));
-    mano[0]= dameCarta(&b);
+    printf("Indica el numero de barajas:\n");
+    scanf("%d", &numbaralles);
+
+    c = barallaCrea(numbaralles);
+
+    mano[0]= dameCarta(&c);
     resultado = mano[0];
-    mano[1] = dameCarta(&b);
+    mano[1] = dameCarta(&c);
     resultado = resultado + mano[1];
     printf("Cuantas fichas vas a apostar?");
     scanf("%d", &apuestaJugador);
@@ -69,7 +76,7 @@ void main() {
         scanf("%s", respuesta);
         if (strcmp("no", respuesta) !=0) {
             posicionmano++;
-            mano[posicionmano - 1] = dameCarta(&b);
+            mano[posicionmano - 1] = dameCarta(&c);
             resultado = resultado + mano[posicionmano - 1];
             for (i = 0; i < posicionmano; i++) {
                 printf("En la mano tienes:%i\n", mano[i]);
@@ -100,7 +107,7 @@ void main() {
             if (resultadoCroupier <= resultado) {
                 if (resultado >= 17) {
                     posicionmano++;
-                    manocroupier[posicionmano - 1] = dameCarta(&b);
+                    manocroupier[posicionmano - 1] = dameCarta(&c);
                     resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
                     for (i = 0; i < posicionmano; i++) {
                         printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
