@@ -8,6 +8,7 @@
 #include "comprobaciones.h"
 #include "barajas.h"
 #include "mesa.h"
+#include "barajas.h"
 
 void main() {
     Jugador j;
