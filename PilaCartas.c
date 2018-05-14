@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <memory.h>
-
+#include "barajas.h"
 
 Pila PILA_crea() {
     Pila p;

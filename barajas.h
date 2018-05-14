@@ -6,6 +6,7 @@
 #define BLACKJACK_BARAJAS_H
 #include "PilaCartas.h"
 
+
 typedef struct{
     Pila p;
     int numCartes;

@@ -6,8 +6,6 @@
 #define BLACKJACK_PILACARTAS_H
 
 
-
-
 typedef struct N {
     int elemento;
     struct N *sig;
