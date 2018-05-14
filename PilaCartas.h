@@ -15,7 +15,7 @@ typedef Nodo *Pila;
 
 Pila PILA_crea();
 void PILA_push(Pila *p, int elemento);
-void PILA_pop(Pila *p);
+int PILA_pop(Pila *p);
 int PILA_top(Pila p);
 int PILA_vacia(Pila p);
 void PILA_destruye(Pila *p);

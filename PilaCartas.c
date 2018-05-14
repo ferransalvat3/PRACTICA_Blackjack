@@ -26,7 +26,7 @@ void PILA_push(Pila *p, int elemento) {
 }
 
 
-void PILA_pop(Pila *p) {
+int PILA_pop(Pila *p) {
     Nodo *aux;
 
     if (*p == NULL) {
