@@ -21,6 +21,7 @@ void main() {
     int partidaEnJuego=1;
     int noSePidenMasCartas=0;
     int juegoCrupier=1;
+    int apuestaJugador=0;
 
     j.fichas = 50;
     j.manos_ganadas=8;
@@ -41,7 +42,17 @@ void main() {
     resultado = mano[0];
     mano[1] = dameCarta();
     resultado = resultado + mano[1];
+    printf("Cuantas fichas vas a apostar?");
+    scanf("%d", &apuestaJugador);
 
+
+    while (compruebaFichasJugador(j, apuestaJugador)==0){
+        printf("No puedes apostar, no tienes tantas fichas, indica una nueva cantidad");
+        scanf("%d", &apuestaJugador);
+    }
+
+    j.fichas= j.fichas-apuestaJugador;
+    printf("Te quedan: %d fichas", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i", mano[0], mano[1]);
 
     manocroupier[0]= 3;
