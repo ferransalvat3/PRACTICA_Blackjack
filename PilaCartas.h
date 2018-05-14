@@ -5,6 +5,9 @@
 #ifndef BLACKJACK_PILACARTAS_H
 #define BLACKJACK_PILACARTAS_H
 
+
+
+
 typedef struct N {
     int elemento;
     struct N *sig;
@@ -18,6 +21,6 @@ void PILA_pop(Pila *p);
 int PILA_top(Pila p);
 int PILA_vacia(Pila p);
 void PILA_destruye(Pila *p);
-int dameCarta();
+
 
 #endif //BLACKJACK_PILACARTAS_H

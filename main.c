@@ -6,6 +6,7 @@
 #include "bot.h"
 #include "PilaCartas.h"
 #include "comprobaciones.h"
+#include "barajas.h"
 #include "mesa.h"
 
 void main() {

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <memory.h>
 
 
 Pila PILA_crea() {
@@ -63,15 +64,6 @@ void PILA_destruye(Pila *p) {
 }
 
 
-int dameCarta(){
-    int baraja[30];
-    int i=0;
 
-    for(i=0; i<30;i++){
-        baraja[i] = rand()%11;
-    }
-
-    return baraja[rand()%30];
-}
 
 
