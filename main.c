@@ -64,7 +64,7 @@ void main() {
 
     do{
         printf("\nQuieres pedir carta?");
-        gets(respuesta);
+        scanf("%s", respuesta);
         if (strcmp("no", respuesta) !=0) {
             posicionmano++;
             mano[posicionmano - 1] = dameCarta();
