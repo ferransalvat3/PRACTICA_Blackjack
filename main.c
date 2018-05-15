@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <stdlib.h>
+#include <time.h>
 #include "jugador.h"
 #include "bot.h"
 #include "PilaCartas.h"
@@ -93,7 +93,7 @@ void main() {
     printf("Turno del crupier");
     posicionmano=2;
     do{
-        //if (juegoCrupier!=0) {
+        if (juegoCrupier==1) {
             if (resultadoCroupier <= resultado) {
                 if (resultado >= 17) {
                     posicionmano++;
@@ -103,12 +103,12 @@ void main() {
                         printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
                     }
                     if (teHasPasado(resultadoCroupier) == 1) {
-                        printf("\nEl croupier se ha pasado, enhorabuena has ganado");
+                        printf("\nEl croupier se ha pasado");
                         noSePidenMasCartas = 1;
                         juegoCrupier = 0;
                     }
                     if (compruebaBlackJack(resultado) == 1) {
-                        printf("\nBlackjack del crupier, has perdido");
+                        printf("\nBlackjack del crupier");
                         noSePidenMasCartas = 1;
                         juegoCrupier = 0;
                     }
@@ -118,7 +118,7 @@ void main() {
                 noSePidenMasCartas = 0;
                 juegoCrupier = 0;
             }
-      //  }
+        }
 
     }while (juegoCrupier==1);
 
