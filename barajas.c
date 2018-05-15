@@ -2,6 +2,7 @@
 // Created by Ferran Salvat on 14/5/18.
 //
 #include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
