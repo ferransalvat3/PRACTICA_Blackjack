@@ -26,6 +26,8 @@ Baralles barallaCrea(int numbaralles){
         barallaOrd[i] = baralla[i % 13];
     }
 
+
+
     srand(time(NULL));
     for (i=0; i<c.numCartes; i++){
         barallaRand = rand() % (c.numCartes);
