@@ -7,6 +7,9 @@ typedef struct{
     int fichas;
     char caracter[50];
     int cartaMaxima;
+    int manobot[10];
+    int puntuacionCartasBot;
+    int apuestaBot;
 }Bot;
 
 
