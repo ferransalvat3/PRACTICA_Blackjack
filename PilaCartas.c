@@ -26,7 +26,7 @@ void PILA_push(Pila *p, int elemento) {
 }
 
 
-int PILA_pop(Pila *p) {
+void PILA_pop(Pila *p) {
     Nodo *aux;
 
     if (*p == NULL) {
@@ -38,6 +38,7 @@ int PILA_pop(Pila *p) {
     }
 
 }
+
 
 int PILA_top(Pila p) {
     int elemento = -1;

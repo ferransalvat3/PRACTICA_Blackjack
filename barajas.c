@@ -14,33 +14,39 @@ Baralles barallaCrea(int numbaralles){
     Baralles c;
     int i = 0, j=0;
     int barallaRand;
+    int *barallaOrd;
 
     c.p = PILA_crea();
     int baralla[13] = {1,2,3,4,5,6,7,8,9,10,10,10,11};
     c.numCartes = numbaralles * 13;
-    int barallaOrd[c.numCartes];
 
-    for (i=0; i<numbaralles; i++){
-        barallaOrd[j] = baralla[i];
-        j++;
+    barallaOrd = (int*)malloc(sizeof(int)*c.numCartes);
+    for (i=0; i<c.numCartes; i++){
+        barallaOrd[i] = baralla[i % 13];
     }
 
     srand(time(NULL));
     for (i=0; i<c.numCartes; i++){
         barallaRand = rand() % (c.numCartes);
-        PILA_push(c.p, barallaOrd[barallaRand]);
+
+        PILA_push(&c.p, barallaOrd[barallaRand]);
     }
 
     return c;
 
 }
 
-
 int dameCarta(Baralles *c){
-    if (PILA_vacia(c->p)){
-        return PILA_pop(c->p);
+    int carta;
+
+    if (!PILA_vacia(c->p)){
+        carta = PILA_top(c->p);
+        PILA_pop(&c->p);
+        return carta;
     }else {
         return 0;
     }
 
 }
+
+
