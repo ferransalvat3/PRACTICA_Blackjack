@@ -28,7 +28,7 @@ int  menuPrincipal() {
         }else{
             switch(opcion){
                 case 1:
-                    barallaCrea(int numbaralles);
+                    //barallaCrea(int numbaralles);
                     break;
                 case 2:
 

@@ -119,6 +119,7 @@ void main() {
                         manocroupier[posicionmano - 1] = dameCarta(&c);
                         resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
                         for (i = 0; i < posicionmano; i++) {
+                            printf("El crupier pide carta");
                             printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
                         }
                         if (teHasPasado(resultadoCroupier) == 1) {
