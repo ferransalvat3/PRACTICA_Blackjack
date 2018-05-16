@@ -68,34 +68,36 @@ void main() {
 
     int i=0;
 
-    do{
-        printf("Quieres pedir carta?\n");
-        scanf("%s", respuesta);
-        if (strcmp("no", respuesta) !=0) {
-            posicionmano++;
-            mano[posicionmano - 1] = dameCarta(&c);
-            resultado = resultado + mano[posicionmano - 1];
-            for (i = 0; i < posicionmano; i++) {
-                printf("En la mano tienes:%i \n", mano[i]);
+    if (partidaEnJuego!=0) {
+        do {
+            printf("Quieres pedir carta?\n");
+            scanf("%s", respuesta);
+            if (strcmp("no", respuesta) != 0) {
+                posicionmano++;
+                mano[posicionmano - 1] = dameCarta(&c);
+                resultado = resultado + mano[posicionmano - 1];
+                for (i = 0; i < posicionmano; i++) {
+                    printf("En la mano tienes:%i \n", mano[i]);
+                }
+                printf("Tienes un valor de %i\n", resultado);
+                if (compruebaBlackJack(resultado) == 1) {
+                    printf("ENHORABUENA! TIENES BLACKJACK!\n");
+                    noSePidenMasCartas = 1;
+                    partidaEnJuego = 0;
+                    //juegoCrupier=0;
+                }
+                if (teHasPasado(resultado) == 1) {
+                    printf("Te has pasado, loser\n");
+                    noSePidenMasCartas = 1;
+                    partidaEnJuego = 0;
+                    //juegoCrupier=0;
+                }
+            } else {
+                partidaEnJuego = 0;
             }
-            printf("Tienes un valor de %i\n", resultado);
-            if (compruebaBlackJack(resultado) == 1) {
-                printf("ENHORABUENA! TIENES BLACKJACK!\n");
-                noSePidenMasCartas=1;
-                partidaEnJuego=0;
-                //juegoCrupier=0;
-            }
-            if (teHasPasado(resultado) == 1) {
-                printf("Te has pasado, loser\n");
-                noSePidenMasCartas=1;
-                partidaEnJuego=0;
-                //juegoCrupier=0;
-            }
-        } else{
-            partidaEnJuego =0;
-        }
 
-    }while (partidaEnJuego!=0);
+        } while (partidaEnJuego != 0);
+    }
 
     printf("Turno del crupier\n");
     posicionmano=2;
