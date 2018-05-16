@@ -14,8 +14,7 @@ void main() {
     Jugador j;
     Bot b;
     Baralles c;
-    strcpy(j.nombre,"fefe");
-    char respuesta[2];
+    char respuesta[3];
     int posicionmano=2;
     int mano [10];
     int manocroupier [10];
@@ -69,7 +68,7 @@ void main() {
             mano[posicionmano - 1] = dameCarta(&c);
             resultado = resultado + mano[posicionmano - 1];
             for (i = 0; i < posicionmano; i++) {
-                printf("En la mano tienes:%i\n", mano[i]);
+                printf("En la mano tienes:%i \n", mano[i]);
             }
             printf("\nTienes un valor de %i", resultado);
             if (compruebaBlackJack(resultado) == 1) {
