@@ -36,10 +36,7 @@ void main() {
 
     c = barallaCrea(numbaralles);
 
-    mano[0]= dameCarta(&c);
-    resultado = mano[0];
-    mano[1] = dameCarta(&c);
-    resultado = resultado + mano[1];
+
     printf("Cuantas fichas vas a apostar?\n");
     scanf("%d", &apuestaJugador);
 
@@ -50,6 +47,16 @@ void main() {
     }
 
     j.fichas= j.fichas-apuestaJugador;
+    mano[0]= dameCarta(&c);
+    resultado = mano[0];
+    mano[1] = dameCarta(&c);
+    resultado = resultado + mano[1];
+    if (compruebaBlackJack(resultado) == 1) {
+        printf("ENHORABUENA! TIENES BLACKJACK!\n");
+        noSePidenMasCartas=1;
+        partidaEnJuego=0;
+        //juegoCrupier=0;
+    }
     printf("Te quedan: %d fichas\n", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
 
