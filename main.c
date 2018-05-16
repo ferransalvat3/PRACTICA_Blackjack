@@ -57,6 +57,7 @@ void main() {
         partidaEnJuego=0;
         //juegoCrupier=0;
     }
+
     printf("Te quedan: %d fichas\n", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
 
