@@ -3,15 +3,13 @@
 //
 #include <stdlib.h>
 #include <time.h>
-
 #include "barajas.h"
-
 
 
 
 Baralles barallaCrea(int numbaralles){
     Baralles c;
-    int i = 0, j=0;
+    int i = 0;
     int barallaRand;
     int *barallaOrd;
 
@@ -23,8 +21,6 @@ Baralles barallaCrea(int numbaralles){
     for (i=0; i<c.numCartes; i++){
         barallaOrd[i] = baralla[i % 13];
     }
-
-
 
     srand(time(NULL));
     for (i=0; i<c.numCartes; i++){
