@@ -30,6 +30,8 @@ void main() {
     j.manos_ganadas=8;
     j.manos_perdidas=7;
 
+
+
     srand(time(NULL));
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
