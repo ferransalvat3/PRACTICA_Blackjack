@@ -5,7 +5,7 @@ typedef struct{
     int numero;
     char nombre[50];
     int fichas;
-    char caracter[50];
+    char caracter[10];
     int cartaMaxima;
     int manobot[10];
     int puntuacionCartasBot;
@@ -15,5 +15,6 @@ typedef struct{
 
 
 int retornaCartaMaxima(int idBot, Bot b);
+int retornaApuesta(Bot b);
 
 #endif //BLACKJACK_BOT_H

@@ -67,6 +67,25 @@ void main() {
     printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
 
 
+    // Simulacion de crear bots, borrar despues
+    strcpy(arrayBots[0].caracter, "debil");
+    arrayBots[0].fichas=900;
+    strcpy(arrayBots[1].caracter, "fuerte");
+    arrayBots[1].fichas=9;
+    strcpy(arrayBots[2].caracter, "normal");
+    arrayBots[2].fichas=90;
+    //---------
+
+    for (i = 0; i <numeroBots ; i++) {
+        if (retornaApuesta(arrayBots[i])==0){
+            printf("\nEl bot %i no puede apostar", i);
+        } else{
+            arrayBots[i].apuestaBot=retornaApuesta(arrayBots[i]);
+            printf("\nEl bot %i apuesta: %i", i, arrayBots[i].apuestaBot);
+        }
+    }
+
+
     for (i=0;i<numeroBots;i++){
         arrayBots[i].puntuacionCartasBot=0;
         for (ii=0;ii<2;ii++){
@@ -129,9 +148,6 @@ void main() {
 
     printf("Turno de los bots");
 
-    for (i=0;i<numeroBots;i++){
-
-    }
 
 
     posicionmano=2;
