@@ -76,6 +76,7 @@ void main() {
 
         printf("\nEl bot %i tiene en la mano un %i y un %i", i,arrayBots[i].manobot[0],arrayBots[i].manobot[1]);
         printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
+
     }
 
     manocroupier[0]= dameCarta(&c);
