@@ -13,6 +13,7 @@
 void main() {
     Jugador j;
     Bot b;
+    Bot *arrayBots;
     Baralles c;
     char respuesta[3];
     int posicionmano=2;
@@ -25,11 +26,16 @@ void main() {
     int juegoCrupier=1;
     int apuestaJugador=0;
     int numbaralles = 0;
+    int numeroBots=3;
+    int i=0;
+    int ii=0;
 
     j.fichas = 50;
     j.manos_ganadas=8;
     j.manos_perdidas=7;
 
+
+    arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
     srand(time(NULL));
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
@@ -55,11 +61,22 @@ void main() {
         printf("ENHORABUENA! TIENES BLACKJACK A LA PRIMERA!\n");
         noSePidenMasCartas=1;
         partidaEnJuego=0;
-        //juegoCrupier=0;
     }
 
     printf("Te quedan: %d fichas\n", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
+
+
+    for (i=0;i<numeroBots;i++){
+        arrayBots[i].puntuacionCartasBot=0;
+        for (ii=0;ii<2;ii++){
+            arrayBots[i].manobot[ii]=dameCarta(&c);
+            arrayBots[i].puntuacionCartasBot= arrayBots[i].puntuacionCartasBot+arrayBots[i].manobot[ii];
+        }
+
+        printf("\nEl bot %i tiene en la mano un %i y un %i", i,arrayBots[i].manobot[0],arrayBots[i].manobot[1]);
+        printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
+    }
 
     manocroupier[0]= dameCarta(&c);
     resultadoCroupier = resultadoCroupier+manocroupier[0];
@@ -73,11 +90,11 @@ void main() {
         juegoCrupier=0;
     }
 
-    int i=0;
+
 
     if (partidaEnJuego!=0) {
         do {
-            printf("Quieres pedir carta?\n");
+            printf("\nQuieres pedir carta?\n");
             scanf("%s", respuesta);
             if (strcmp("no", respuesta) != 0) {
                 posicionmano++;
@@ -104,6 +121,12 @@ void main() {
         } while (partidaEnJuego != 0);
     }
 
+    printf("Turno de los bots");
+
+    for (i=0;i<numeroBots;i++){
+
+    }
+
 
     posicionmano=2;
     if (juegoCrupier!=0) {
@@ -118,8 +141,10 @@ void main() {
                         posicionmano++;
                         manocroupier[posicionmano - 1] = dameCarta(&c);
                         resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
+                        printf("El crupier pide carta\n50"
+                                       "");
                         for (i = 0; i < posicionmano; i++) {
-                            printf("El crupier pide carta");
+
                             printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
                         }
                         if (teHasPasado(resultadoCroupier) == 1) {
@@ -145,6 +170,8 @@ void main() {
 
         } while (juegoCrupier == 1);
     }
+
+    printf("El crupier no pide mas");
 
 
 
