@@ -10,6 +10,7 @@ typedef struct{
     int manobot[10];
     int puntuacionCartasBot;
     int apuestaBot;
+    int victorias;
 }Bot;
 
 

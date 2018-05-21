@@ -77,6 +77,11 @@ void main() {
         printf("\nEl bot %i tiene en la mano un %i y un %i", i,arrayBots[i].manobot[0],arrayBots[i].manobot[1]);
         printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
 
+        if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot)==1){
+            printf("El bot %i ha hecho blackjack a la primera", i);
+            arrayBots[i].victorias++;
+        }
+
     }
 
     manocroupier[0]= dameCarta(&c);
