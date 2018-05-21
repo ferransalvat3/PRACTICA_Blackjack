@@ -24,7 +24,7 @@ int  menuPrincipal() {
         scanf("%d", &opcion);
 
         if (opcion > 4){
-            printf("Opcio incorrecte:\n");
+            printf("Opcio incorrecte, vuelve a introducir una opcion (1-4):\n");
         }else{
             switch(opcion){
                 case 1:
@@ -63,7 +63,7 @@ int menuJugar() {
         scanf("%d", &option);
 
         if (option > 4){
-            printf("Opcio incorrecte:\n");
+            printf("Opcio incorrecte, vuelve a introducir una opcion (1-4)\n");
         }else{
             switch(option){
                 case 1:
@@ -103,7 +103,7 @@ int menuEstadistica(){
         scanf("%d", &opcio);
 
         if (opcio > 4){
-            printf("Opcio incorrecte:\n");
+            printf("Opcio incorrecte, vuelve a introducir una opcion (1-4):\n");
         }else{
             switch(opcio){
                 case 1:
