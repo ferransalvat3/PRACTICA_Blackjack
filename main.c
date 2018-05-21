@@ -147,7 +147,7 @@ void main() {
                         posicionmano++;
                         manocroupier[posicionmano - 1] = dameCarta(&c);
                         resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
-                        printf("El crupier pide carta\n50"
+                        printf("El crupier pide carta\n"
                                        "");
                         for (i = 0; i < posicionmano; i++) {
 
