@@ -13,6 +13,8 @@
 int apuestaDebil=100;
 int apuestaNormal=500;
 int apuestaFuerte=900;
+Bot *arrayBots;
+int numeroBots=3;
 
 int retornaCartaMaxima(int idBot, Bot b){
     return b.cartaMaxima;
@@ -88,7 +90,7 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta){
 }
 void turnoBots(int manoMasAlta, Baralles *c){
     Bot b;
-    Bot *arrayBots;
+    //Bot *arrayBots;
     int i=0;
     int numeroBots=3;
     int ii=0;
@@ -126,7 +128,7 @@ void turnoBots(int manoMasAlta, Baralles *c){
 
         if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot)==1){
             printf("El bot %i ha hecho blackjack a la primera", i);
-            arrayBots[i].victorias++;
+            arrayBots[i].puedeGanar=1;
         }
 
     }
@@ -141,6 +143,9 @@ void turnoBots(int manoMasAlta, Baralles *c){
                 arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
                 manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
             } else {
+                if(compruebaBlackJack(arrayBots[i].puntuacionCartasBot)==1 || teHasPasado(arrayBots[i].puntuacionCartasBot)==0){
+                    arrayBots[i].puedeGanar=1;
+                }
                 printf("\nEl bot %i pasa de turno", i);
                 printf("\nEl bot %i tiene una puntuacion de %i", i, arrayBots[i].puntuacionCartasBot);
                 i++;
@@ -151,4 +156,17 @@ void turnoBots(int manoMasAlta, Baralles *c){
 
     }
 }
+
+void compruebaBotGanador(int resultadoCrupier){
+    int i=0;
+    for (i=0;i<numeroBots;i++) {
+        if (arrayBots[i].puedeGanar==1 && arrayBots[i].puntuacionCartasBot > resultadoCrupier) {
+            arrayBots[i].victorias = arrayBots[i].victorias + 1;
+            arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].fichas * 2);
+            printf("El bot %i ha ganado esta ronda", i);
+        }
+    }
+}
+
+
 

@@ -45,7 +45,6 @@ void main() {
 
     c = barallaCrea(numbaralles);
 
-
     printf("Cuantas fichas vas a apostar?\n");
     scanf("%d", &apuestaJugador);
 
@@ -179,6 +178,8 @@ void main() {
             }
         }
     }
+
+    compruebaBotGanador(resultadoCroupier);
 
 
 }
