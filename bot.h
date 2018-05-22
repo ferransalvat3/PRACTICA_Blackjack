@@ -1,6 +1,8 @@
 #ifndef BLACKJACK_BOT_H
 #define BLACKJACK_BOT_H
 
+#include "barajas.h"
+
 typedef struct{
     int numero;
     char nombre[50];
@@ -17,5 +19,6 @@ typedef struct{
 int retornaCartaMaxima(int idBot, Bot b);
 int retornaApuesta(Bot b);
 int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta);
+void turnoBots(int manoMasAlta, Baralles *c);
 
 #endif //BLACKJACK_BOT_H

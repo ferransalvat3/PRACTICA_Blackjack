@@ -2,10 +2,13 @@
 // Created by Ferran Salvat on 2/5/18.
 //
 
-
-#include <mem.h>
+#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "bot.h"
+#include "barajas.h"
+#include "comprobaciones.h"
+#include "mesa.h"
 
 int apuestaDebil=100;
 int apuestaNormal=500;
@@ -83,3 +86,69 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta){
 
     }
 }
+void turnoBots(int manoMasAlta, Baralles *c){
+    Bot b;
+    Bot *arrayBots;
+    int i=0;
+    int numeroBots=3;
+    int ii=0;
+    int ultimaCarta=0;
+    int turnoBot=0;
+    arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
+
+    // Simulacion de crear bots, borrar despues
+    strcpy(arrayBots[0].caracter, "debil");
+    arrayBots[0].fichas=900;
+    strcpy(arrayBots[1].caracter, "fuerte");
+    arrayBots[1].fichas=9;
+    strcpy(arrayBots[2].caracter, "normal");
+    arrayBots[2].fichas=904;
+    //---------
+
+    for (i = 0; i <numeroBots ; i++) {
+        if (retornaApuesta(arrayBots[i])==0){
+            printf("\nEl bot %i no puede apostar", i);
+        } else{
+            arrayBots[i].apuestaBot=retornaApuesta(arrayBots[i]);
+            printf("\nEl bot %i apuesta: %i", i, arrayBots[i].apuestaBot);
+        }
+    }
+
+    for (i=0;i<numeroBots;i++){
+        arrayBots[i].puntuacionCartasBot=0;
+        for (ii=0;ii<2;ii++){
+            arrayBots[i].manobot[ii]=dameCarta(c);
+            arrayBots[i].puntuacionCartasBot= arrayBots[i].puntuacionCartasBot+arrayBots[i].manobot[ii];
+        }
+
+        printf("\nEl bot %i tiene en la mano un %i y un %i", i,arrayBots[i].manobot[0],arrayBots[i].manobot[1]);
+        printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
+
+        if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot)==1){
+            printf("El bot %i ha hecho blackjack a la primera", i);
+            arrayBots[i].victorias++;
+        }
+
+    }
+
+    i=0;
+    ii=0;
+    while (turnoBot<numeroBots) {
+        if (turnoBot < numeroBots) {
+            ultimaCarta = dameCarta(c);
+
+            if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 1) {
+                arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
+                manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
+            } else {
+                printf("\nEl bot %i pasa de turno", i);
+                printf("\nEl bot %i tiene una puntuacion de %i", i, arrayBots[i].puntuacionCartasBot);
+                i++;
+                turnoBot++;
+            }
+
+        }
+
+    }
+}
+
