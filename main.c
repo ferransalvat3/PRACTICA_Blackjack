@@ -106,7 +106,7 @@ void main() {
         }
 
     }
-
+*/
     manocroupier[0]= dameCarta(&c);
     resultadoCroupier = resultadoCroupier+manocroupier[0];
     manocroupier[1]= dameCarta(&c);
@@ -118,7 +118,7 @@ void main() {
         partidaEnJuego=0;
         juegoCrupier=0;
     }
-*/
+
 
 
 
@@ -151,9 +151,6 @@ void main() {
 
         } while (partidaEnJuego != 0);
     }
-
-    printf("Turno de los bots");
-
 
 
     posicionmano=2;
@@ -270,16 +267,18 @@ void turnoBots(int manoMasAlta, Baralles c){
     while (turnoBot<numeroBots) {
         if (turnoBot < numeroBots) {
             ultimaCarta = dameCarta(&c);
+
             if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 1) {
                 arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
-                printf("\nEl bot %i tiene una puntuacion de %i", i, arrayBots[i].puntuacionCartasBot);
+                manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
             } else {
                 printf("\nEl bot %i pasa de turno", i);
+                printf("\nEl bot %i tiene una puntuacion de %i", i, arrayBots[i].puntuacionCartasBot);
                 i++;
                 turnoBot++;
             }
+
         }
 
-        manoMasAlta = comprobarManoMasAlta(ultimaCarta, manoMasAlta);
     }
 }
