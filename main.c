@@ -248,7 +248,6 @@ void turnoBots(int manoMasAlta, Baralles c){
         }
     }
 
-
     for (i=0;i<numeroBots;i++){
         arrayBots[i].puntuacionCartasBot=0;
         for (ii=0;ii<2;ii++){
@@ -266,15 +265,21 @@ void turnoBots(int manoMasAlta, Baralles c){
 
     }
 
+    i=0;
+    ii=0;
     while (turnoBot<numeroBots) {
         if (turnoBot < numeroBots) {
             ultimaCarta = dameCarta(&c);
             if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 1) {
                 arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
-            } else if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 0) {
+                printf("\nEl bot %i tiene una puntuacion de %i", i, arrayBots[i].puntuacionCartasBot);
+            } else {
+                printf("\nEl bot %i pasa de turno", i);
                 i++;
                 turnoBot++;
             }
         }
+
+        manoMasAlta = comprobarManoMasAlta(ultimaCarta, manoMasAlta);
     }
 }
