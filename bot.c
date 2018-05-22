@@ -18,19 +18,31 @@ int retornaCartaMaxima(int idBot, Bot b){
 int retornaApuesta(Bot b){
         if (strcmp(b.caracter, "debil") == 0) {
             if(b.fichas>=20){
-                return apuestaDebil;
+                if(b.fichas>apuestaDebil){
+                    return apuestaDebil;
+                } else{
+                    return 0;
+                }
             } else {
                 return 0;
             }
         } else if (strcmp(b.caracter, "normal") == 0) {
             if(b.fichas>=20){
-                return apuestaNormal;
+                if(b.fichas>apuestaNormal){
+                    return apuestaNormal;
+                } else{
+                    return 0;
+                }
             } else {
                 return 0;
             }
         } else if (strcmp(b.caracter, "fuerte") == 0) {
             if(b.fichas>=20){
-                return apuestaFuerte;
+                if(b.fichas>apuestaFuerte){
+                    return apuestaFuerte;
+                } else{
+                    return 0;
+                }
             } else {
                 return 0;
             }

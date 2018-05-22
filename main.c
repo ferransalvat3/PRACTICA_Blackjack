@@ -73,7 +73,7 @@ void main() {
     strcpy(arrayBots[1].caracter, "fuerte");
     arrayBots[1].fichas=9;
     strcpy(arrayBots[2].caracter, "normal");
-    arrayBots[2].fichas=90;
+    arrayBots[2].fichas=904;
     //---------
 
     for (i = 0; i <numeroBots ; i++) {
