@@ -16,5 +16,6 @@ typedef struct{
 
 int retornaCartaMaxima(int idBot, Bot b);
 int retornaApuesta(Bot b);
+int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta);
 
 #endif //BLACKJACK_BOT_H

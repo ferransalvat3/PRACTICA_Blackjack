@@ -12,8 +12,8 @@
 
 void main() {
     Jugador j;
-    Bot b;
-    Bot *arrayBots;
+//    Bot b;
+//    Bot *arrayBots;
     Baralles c;
     char respuesta[3];
     int posicionmano=2;
@@ -26,16 +26,17 @@ void main() {
     int juegoCrupier=1;
     int apuestaJugador=0;
     int numbaralles = 0;
-    int numeroBots=3;
+    //int numeroBots=3;
     int i=0;
-    int ii=0;
+    //int ii=0;
+    int manoMasAlta=0;
 
     j.fichas = 50;
     j.manos_ganadas=8;
     j.manos_perdidas=7;
 
 
-    arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
+    //arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
     srand(time(NULL));
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
@@ -52,6 +53,9 @@ void main() {
         scanf("%d", &apuestaJugador);
     }
 
+
+    turnoBots(manoMasAlta,c);
+
     j.fichas= j.fichas-apuestaJugador;
     mano[0]= dameCarta(&c);
     resultado = mano[0];
@@ -66,7 +70,7 @@ void main() {
     printf("Te quedan: %d fichas\n", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
 
-
+/*
     // Simulacion de crear bots, borrar despues
     strcpy(arrayBots[0].caracter, "debil");
     arrayBots[0].fichas=900;
@@ -114,6 +118,8 @@ void main() {
         partidaEnJuego=0;
         juegoCrupier=0;
     }
+*/
+
 
 
 
@@ -212,4 +218,63 @@ void main() {
     }
 
 
+}
+
+void turnoBots(int manoMasAlta, Baralles c){
+    Bot b;
+    Bot *arrayBots;
+    int i=0;
+    int numeroBots=3;
+    int ii=0;
+    int ultimaCarta=0;
+    int turnoBot=0;
+    arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
+
+    // Simulacion de crear bots, borrar despues
+    strcpy(arrayBots[0].caracter, "debil");
+    arrayBots[0].fichas=900;
+    strcpy(arrayBots[1].caracter, "fuerte");
+    arrayBots[1].fichas=9;
+    strcpy(arrayBots[2].caracter, "normal");
+    arrayBots[2].fichas=904;
+    //---------
+
+    for (i = 0; i <numeroBots ; i++) {
+        if (retornaApuesta(arrayBots[i])==0){
+            printf("\nEl bot %i no puede apostar", i);
+        } else{
+            arrayBots[i].apuestaBot=retornaApuesta(arrayBots[i]);
+            printf("\nEl bot %i apuesta: %i", i, arrayBots[i].apuestaBot);
+        }
+    }
+
+
+    for (i=0;i<numeroBots;i++){
+        arrayBots[i].puntuacionCartasBot=0;
+        for (ii=0;ii<2;ii++){
+            arrayBots[i].manobot[ii]=dameCarta(&c);
+            arrayBots[i].puntuacionCartasBot= arrayBots[i].puntuacionCartasBot+arrayBots[i].manobot[ii];
+        }
+
+        printf("\nEl bot %i tiene en la mano un %i y un %i", i,arrayBots[i].manobot[0],arrayBots[i].manobot[1]);
+        printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
+
+        if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot)==1){
+            printf("El bot %i ha hecho blackjack a la primera", i);
+            arrayBots[i].victorias++;
+        }
+
+    }
+
+    while (turnoBot<numeroBots) {
+        if (turnoBot < numeroBots) {
+            ultimaCarta = dameCarta(&c);
+            if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 1) {
+                arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
+            } else if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 0) {
+                i++;
+                turnoBot++;
+            }
+        }
+    }
 }
