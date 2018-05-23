@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 
-
+/*
 void ficherobot(){
 
     Bot b;
@@ -93,4 +93,4 @@ void ficherojugador(){
     }
 }
 
-
+*/

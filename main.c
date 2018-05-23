@@ -8,10 +8,7 @@ void main() {
     Baralles c;
     int numbaralles = 0;
 
-    j.fichas = 50;
-    j.manos_ganadas=8;
-    j.manos_perdidas=7;
-    j.manos_empatadas=6;
+
 
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
@@ -22,7 +19,11 @@ void main() {
     }
     c = barallaCrea(numbaralles);
 
-    partida(c,j);
+    j=ficherojugador();
+
+    printf("El tio se llama %s", j.nombre);
+
+    //partida(c,j);
 
 
 

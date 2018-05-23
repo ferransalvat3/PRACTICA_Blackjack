@@ -19,7 +19,6 @@ typedef struct {
 int retornaPartidasGanadas(Jugador j);
 int compruebaFichasJugador(Jugador j, int fichas);
 int retornaFichasJugador(Jugador j);
-
-
+Jugador ficherojugador();
 
 #endif //BLACKJACK_JUGADOR_H
