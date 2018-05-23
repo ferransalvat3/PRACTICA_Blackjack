@@ -14,7 +14,7 @@ typedef struct{
     int apuestaBot;
     int victorias;
     int puedeGanar;
-    int botPideCarta;
+    int noApuesta;
 }Bot;
 
 

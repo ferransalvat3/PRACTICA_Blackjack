@@ -78,7 +78,7 @@ void main() {
     resultadoCroupier = resultadoCroupier+manocroupier[1];
 
     if (compruebaBlackJack(resultadoCroupier) == 1) {
-        printf("el crupier ha hecho blackjack a la primera\n");
+        //printf("el crupier ha hecho blackjack a la primera\n");
         //noSePidenMasCartas=1;
         //partidaEnJuego=0;
         juegoCrupier=0;
