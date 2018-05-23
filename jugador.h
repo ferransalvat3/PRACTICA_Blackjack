@@ -19,7 +19,7 @@ typedef struct {
 int retornaPartidasGanadas(Jugador j);
 int compruebaFichasJugador(Jugador j, int fichas);
 int retornaFichasJugador(Jugador j);
-void jugadorContraCrupier(Baralles c, Jugador j);
+
 
 
 #endif //BLACKJACK_JUGADOR_H

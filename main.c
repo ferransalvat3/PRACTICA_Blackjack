@@ -1,10 +1,6 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
 #include "jugador.h"
-#include "bot.h"
-#include "comprobaciones.h"
+#include "partida.h"
 
 
 void main() {
@@ -26,7 +22,7 @@ void main() {
     }
     c = barallaCrea(numbaralles);
 
-    jugadorContraCrupier(c,j);
+    partida(c,j);
 
 
 

@@ -12,7 +12,7 @@
 #include "jugador.h"
 
 
-void jugadorContraCrupier(Baralles c, Jugador j){
+void partida(Baralles c, Jugador j){
 
     char respuesta[3];
     int posicionmano=2;
