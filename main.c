@@ -79,8 +79,8 @@ void main() {
 
     if (compruebaBlackJack(resultadoCroupier) == 1) {
         printf("el crupier ha hecho blackjack a la primera\n");
-        noSePidenMasCartas=1;
-        partidaEnJuego=0;
+        //noSePidenMasCartas=1;
+        //partidaEnJuego=0;
         juegoCrupier=0;
     }
 
@@ -138,7 +138,9 @@ void main() {
                             printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
                         }
                         if (teHasPasado(resultadoCroupier) == 1) {
-                            printf("El croupier se ha pasado\n");
+                            if (teHasPasado(resultado)==0){
+                                printf("El croupier se ha pasado, has ganado\n");
+                            }
                             noSePidenMasCartas = 1;
                             juegoCrupier = 0;
                         }
@@ -168,13 +170,13 @@ void main() {
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
             if (compruebaManos(resultado, resultadoCroupier) == 1) {
-                printf("Gana la banca\n");
+                printf("\nEl crupier te ha ganado\n");
             } else if (compruebaManos(resultado, resultadoCroupier) == 2) {
-                printf("Enhorabuena, has ganado\n");
+                printf("\nEnhorabuena, has ganado\n");
                 j.manos_ganadas = j.manos_ganadas + 1;
                 printf("Tienes %i manos ganadas\n", j.manos_ganadas);
             } else {
-                printf("Empate!\n");
+                printf("\nEmpate entre el crupier y tu\n");
             }
         }
     }
