@@ -44,7 +44,7 @@ void main() {
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
 
-    if (numbaralles<1 || numbaralles>4){
+    while (numbaralles<1 || numbaralles>4){
         printf("No se pueden crear tantas barajas(1-4). Introduce un numero valido.\n");
         scanf("%d", &numbaralles);
     }
