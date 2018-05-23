@@ -72,7 +72,7 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b){
             return 0;
         }
     } else if (strcmp(b.caracter, "debil") == 0){
-        if(b.puntuacionCartasBot<=12){
+        if(b.puntuacionCartasBot<12){
             return 1;
         } else{
             return 0;

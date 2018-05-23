@@ -1,5 +1,8 @@
+#include <stdio.h>
+#include <mem.h>
 #include "jugador.h"
 #include "mesa.h"
+#include "comprobaciones.h"
 
 int retornaPartidasGanadas(Jugador j){
     return j.manos_ganadas;
@@ -16,3 +19,4 @@ int compruebaFichasJugador(Jugador j, int fichas){
 int retornaFichasJugador(Jugador j){
     return j.fichas;
 }
+
