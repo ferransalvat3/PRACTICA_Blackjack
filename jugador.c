@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <mem.h>
 #include "jugador.h"
-#include "mesa.h"
-#include "comprobaciones.h"
+
 
 int retornaPartidasGanadas(Jugador j){
     return j.manos_ganadas;
@@ -22,6 +21,7 @@ int retornaFichasJugador(Jugador j){
 
 Jugador ficherojugador(){
 
+    FILE *fi;
     char nombre[50];
     int numfichas = 0;
     int numganadas = 0;
@@ -30,7 +30,7 @@ Jugador ficherojugador(){
     char aux[5];
     Jugador j;
 
-    FILE *fi=fopen("jugador.txt","rw");
+    fi = fopen("jugador.txt","rw");
     if (fi==NULL){
         printf("ERROR.");
     }else{

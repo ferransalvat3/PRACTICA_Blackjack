@@ -21,9 +21,8 @@ void main() {
 
     j=ficherojugador();
 
-    printf("El tio se llama %s", j.nombre);
 
-    //partida(c,j);
+    partida(c,j);
 
 
 
