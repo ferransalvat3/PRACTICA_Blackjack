@@ -14,12 +14,13 @@ typedef struct{
     int apuestaBot;
     int victorias;
     int puedeGanar;
+    int botPideCarta;
 }Bot;
 
 
 int retornaCartaMaxima(int idBot, Bot b);
 int retornaApuesta(Bot b);
-int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta);
+int pedirCartasSegunCaracter(int manoMasAlta, Bot b);
 void turnoBots(int manoMasAlta, Baralles *c);
 void compruebaBotGanador(int resultadoCrupier);
 

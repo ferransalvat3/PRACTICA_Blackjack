@@ -16,9 +16,7 @@ int apuestaFuerte=900;
 Bot *arrayBots;
 int numeroBots=3;
 
-int retornaCartaMaxima(int idBot, Bot b){
-    return b.cartaMaxima;
-}
+
 
 int retornaApuesta(Bot b){
         if (strcmp(b.caracter, "debil") == 0) {
@@ -55,20 +53,16 @@ int retornaApuesta(Bot b){
 
 }
 
-int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta){
+int pedirCartasSegunCaracter(int manoMasAlta, Bot b){
     if (strcmp(b.caracter, "normal") == 0){
-        if(b.puntuacionCartasBot<15 && ultimaCarta%2==0){
+        if(b.puntuacionCartasBot<15){
             return 1;
         } else{
             return 0;
         }
     } else if (strcmp(b.caracter, "debil") == 0){
         if(b.puntuacionCartasBot<=12){
-            if(ultimaCarta<=2){
-                return 1;
-            }else {
-                return 0;
-            }
+            return 1;
         } else{
             return 0;
         }
@@ -87,6 +81,23 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b, int ultimaCarta){
         }
 
     }
+}
+
+int comprobarCartasSegunCaracter(Bot b, int ultimaCarta){
+    if (strcmp(b.caracter, "normal") == 0){
+        if(ultimaCarta%2==0){
+            return 1;
+        } else{
+            return 0;
+        }
+    } else if (strcmp(b.caracter, "debil") == 0) {
+        if(ultimaCarta>=2){
+            return 1;
+        } else{
+            return 0;
+        }
+    }
+
 }
 void turnoBots(int manoMasAlta, Baralles *c){
     Bot b;
@@ -134,14 +145,23 @@ void turnoBots(int manoMasAlta, Baralles *c){
     }
 
     i=0;
-    ii=0;
+    ii=2;
     while (turnoBot<numeroBots) {
         if (turnoBot < numeroBots) {
             ultimaCarta = dameCarta(c);
-
-            if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i], ultimaCarta) == 1) {
+            if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i]) == 1) {
                 arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
+                arrayBots[i].manobot[ii]= ultimaCarta;
+                ii++;
                 manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
+                if(comprobarCartasSegunCaracter(arrayBots[i], ultimaCarta)==0){
+                    printf("\nEl bot %i pasa de turno", i);
+                    printf("\nEl bot %i tiene una puntuacion de %i", i, arrayBots[i].puntuacionCartasBot);
+                    i++;
+                    turnoBot++;
+                }
+
+                muestraCartasBots(arrayBots[i],i, ii);
             } else {
                 if(compruebaBlackJack(arrayBots[i].puntuacionCartasBot)==1 || teHasPasado(arrayBots[i].puntuacionCartasBot)==0){
                     arrayBots[i].puedeGanar=1;
@@ -179,6 +199,14 @@ void compruebaBotGanador(int resultadoCrupier) {
                 printf("El bot %i ha ganado esta ronda", i);
             }
         }
+    }
+}
+
+void muestraCartasBots(Bot b, int pos, int indice){
+    int i=0;
+
+    for (i=0; i<indice;i++){
+        printf("\nEl bot %i en la mano tiene %i", pos, b.manobot[i]);
     }
 }
 
