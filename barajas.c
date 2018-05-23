@@ -15,24 +15,30 @@ Baralles barallaCrea(int numbaralles){
     int *barallaOrd;
 
     c.p = PILA_crea();
-    int baralla[13] = {1,2,3,4,5,6,7,8,9,10,10,10,11};
-    c.numCartes = numbaralles * 13;
-    //printf("\n----%d\n", c.numCartes);
-    barallaOrd = (int*)malloc(sizeof(int)*c.numCartes);
+    int baralla[13] = {1,2,3,4,5,6,7,8,9,10,11,12,13};
 
-    for (i=0; i<c.numCartes; i++){
-        barallaOrd[i] = baralla[i % 13];
-       // printf("%d", barallaOrd[i]);
-    }
+    if (numbaralles<1 || numbaralles>4) {
+        printf("El numero de barajas tiene que estar entre 1-4. Vuelve a introducir un numero\n");
 
+    }else{
 
-    srand(time(NULL));
-    for (i=0; i<c.numCartes; i++){
-        barallaRand = rand() % (c.numCartes);
-        //barallaRand = barallaOrd[i];
-        //printf("\n%d" ,barallaOrd[i]);
-        PILA_push(&c.p, barallaOrd[barallaRand]);
-    }
+            c.numCartes = numbaralles * 13;
+            //printf("\n----%d\n", c.numCartes);
+            barallaOrd = (int *) malloc(sizeof(int) * c.numCartes);
+
+            for (i = 0; i < c.numCartes; i++) {
+                barallaOrd[i] = baralla[i % 13];
+                //printf("%d------", barallaOrd[i]);
+            }
+
+            srand(time(NULL));
+            for (i = 0; i < c.numCartes; i++) {
+                barallaRand = rand() % (c.numCartes);
+                //barallaRand = barallaOrd[i];
+                //printf("\n%d" ,barallaOrd[i]);
+                PILA_push(&c.p, barallaOrd[barallaRand]);
+            }
+        }
 
     return c;
 

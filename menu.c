@@ -29,13 +29,14 @@ int  menuPrincipal() {
             switch(opcion){
                 case 1:
                     //barallaCrea(int numbaralles);
-                    break;
+
+
                 case 2:
 
-                    break;
+
                 case 3:
 
-                    break;
+                   // menuEstadisticas();
                 case 4:
 
                     break;
