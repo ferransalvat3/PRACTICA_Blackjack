@@ -44,6 +44,11 @@ void main() {
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
 
+    do{
+        printf("No se pueden crear tantas barajas(1-4). Introduce un numero valido.\n");
+        scanf("%d", &numbaralles);
+    }while(numbaralles>4 || numbaralles<1);
+
     c = barallaCrea(numbaralles);
 
     printf("Cuantas fichas vas a apostar?\n");
