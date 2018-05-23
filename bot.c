@@ -17,6 +17,13 @@ Bot *arrayBots;
 int numeroBots=3;
 
 
+void muestraCartasBots(Bot b, int pos, int indice){
+    int i=0;
+    printf("\nSe pide carta");
+    for (i=0; i<indice;i++){
+        printf("\nEl bot %i en la mano tiene %i", pos, b.manobot[i]);
+    }
+}
 
 int retornaApuesta(Bot b){
         if (strcmp(b.caracter, "debil") == 0) {
@@ -202,13 +209,7 @@ void compruebaBotGanador(int resultadoCrupier) {
     }
 }
 
-void muestraCartasBots(Bot b, int pos, int indice){
-    int i=0;
 
-    for (i=0; i<indice;i++){
-        printf("\nEl bot %i en la mano tiene %i", pos, b.manobot[i]);
-    }
-}
 
 
 
