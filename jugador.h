@@ -9,6 +9,7 @@ typedef struct {
     int fichas;
     int manos_ganadas;
     int manos_perdidas;
+    int manos_empatadas;
 }Jugador;
 
 

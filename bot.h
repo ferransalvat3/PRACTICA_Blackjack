@@ -4,7 +4,6 @@
 #include "barajas.h"
 
 typedef struct{
-    int numero;
     char nombre[50];
     int fichas;
     char caracter[10];
@@ -13,6 +12,8 @@ typedef struct{
     int puntuacionCartasBot;
     int apuestaBot;
     int victorias;
+    int derrotas;
+    int empates;
     int puedeGanar;
     int noApuesta;
 }Bot;

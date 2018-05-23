@@ -36,6 +36,7 @@ void main() {
     j.fichas = 50;
     j.manos_ganadas=8;
     j.manos_perdidas=7;
+    j.manos_empatadas=6;
 
 
     //arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
@@ -140,6 +141,8 @@ void main() {
                         if (teHasPasado(resultadoCroupier) == 1) {
                             if (teHasPasado(resultado)==0){
                                 printf("El croupier se ha pasado, has ganado\n");
+                                j.manos_ganadas = j.manos_ganadas + 1;
+                                printf("Tienes %i manos ganadas\n", j.manos_ganadas);
                             }
                             noSePidenMasCartas = 1;
                             juegoCrupier = 0;
@@ -171,12 +174,16 @@ void main() {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
             if (compruebaManos(resultado, resultadoCroupier) == 1) {
                 printf("\nEl crupier te ha ganado\n");
+                j.manos_perdidas= j.manos_perdidas+1;
+                printf("Tienes %i manos perdidas\n", j.manos_perdidas);
             } else if (compruebaManos(resultado, resultadoCroupier) == 2) {
                 printf("\nEnhorabuena, has ganado\n");
                 j.manos_ganadas = j.manos_ganadas + 1;
                 printf("Tienes %i manos ganadas\n", j.manos_ganadas);
             } else {
                 printf("\nEmpate entre el crupier y tu\n");
+                j.manos_empatadas= j.manos_empatadas+1;
+                printf("Tienes %i manos empatadas\n", j.manos_empatadas);
             }
         }
     }
