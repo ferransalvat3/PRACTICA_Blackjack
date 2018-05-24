@@ -14,7 +14,7 @@ int apuestaDebil=100;
 int apuestaNormal=500;
 int apuestaFuerte=900;
 Bot *arrayBots;
-int numeroBots=3;
+int numeroBots=0;
 
 
 void muestraCartasBots(int numBots){
@@ -113,21 +113,19 @@ int comprobarCartasSegunCaracter(Bot b, int ultimaCarta){
 
 void turnoBots(int manoMasAlta, Baralles *c){
     Bot b;
-    //Bot *arrayBots;
     int i=0;
-    int numeroBots=3;
     int ii=0;
     int ultimaCarta=0;
     int turnoBot=0;
-    arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
+    //arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
 
     // Simulacion de crear bots, borrar despues
-    strcpy(arrayBots[0].caracter, "debil");
-    arrayBots[0].fichas=9880;
-    strcpy(arrayBots[1].caracter, "debil");
-    arrayBots[1].fichas=9444;
-    strcpy(arrayBots[2].caracter, "fuerte");
-    arrayBots[2].fichas=904;
+//    strcpy(arrayBots[0].caracter, "debil");
+//    arrayBots[0].fichas=9880;
+//    strcpy(arrayBots[1].caracter, "debil");
+//    arrayBots[1].fichas=9444;
+//    strcpy(arrayBots[2].caracter, "fuerte");
+//    arrayBots[2].fichas=904;
     //---------
 
     for (i = 0; i <numeroBots ; i++) {
@@ -137,7 +135,7 @@ void turnoBots(int manoMasAlta, Baralles *c){
         } else{
             arrayBots[i].noApuesta=0;
             arrayBots[i].apuestaBot=retornaApuesta(arrayBots[i]);
-            printf("\nEl bot %i apuesta: %i", i, arrayBots[i].apuestaBot);
+            printf("\nEl bot %s apuesta: %i", arrayBots[i].nombre, arrayBots[i].apuestaBot);
         }
     }
 
@@ -153,7 +151,7 @@ void turnoBots(int manoMasAlta, Baralles *c){
             printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
 
             if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot) == 1) {
-                printf("El bot %i ha hecho blackjack a la primera", i);
+                printf("El bot %s ha hecho blackjack a la primera", i);
                 arrayBots[i].puedeGanar = 1;
             }
         }
@@ -222,6 +220,57 @@ void compruebaBotGanador(int resultadoCrupier) {
             }
         }
     }
+}
+
+void ficherobot(){
+
+    Bot b;
+    char nombre[50];
+    int numfichas = 0;
+    char caracter[50];
+    int cartamax = 0;
+    char aux[5];
+    int  i;
+    int j=0;
+
+
+    FILE *fi=fopen("bots.txt","r");
+    if (fi==NULL){
+        printf("ERROR.");
+    }else{
+        fscanf(fi, "%i", &numeroBots);
+        arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
+        printf("Num.Bots: %d\n", numeroBots);
+        fgets(nombre, 50, fi);
+
+        for (i =0; i<=numeroBots; i++){
+            while (!feof(fi)) {
+
+                fgets(nombre, 50, fi);
+                fscanf(fi, "%d", &numfichas);
+                fscanf(fi, "%c", &aux[0]);
+                fgets(caracter, 50, fi);
+                fscanf(fi, "%d", &cartamax);
+                fscanf(fi, "%c", &aux[0]);
+
+
+                printf("\nNombre:%s", nombre);
+                printf("\nFichas:%d", numfichas);
+                printf("\nCaracter: %s", caracter);
+                printf("\nCarta Maxima: %d", cartamax);
+
+                strcpy(arrayBots[j].nombre, nombre);
+                strcpy(arrayBots[j].caracter, caracter);
+                arrayBots[j].fichas=numfichas;
+                arrayBots[j].cartaMaxima=cartamax;
+                j++;
+            }
+        }
+
+
+        fclose(fi);
+    }
+
 }
 
 

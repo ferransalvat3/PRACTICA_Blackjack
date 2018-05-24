@@ -24,5 +24,8 @@ int retornaApuesta(Bot b);
 int pedirCartasSegunCaracter(int manoMasAlta, Bot b);
 void turnoBots(int manoMasAlta, Baralles *c);
 void compruebaBotGanador(int resultadoCrupier);
+void ficherobot();
+
+void print();
 
 #endif //BLACKJACK_BOT_H

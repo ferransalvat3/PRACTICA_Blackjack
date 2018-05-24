@@ -48,13 +48,6 @@ Jugador ficherojugador(){
             fgets(nombre, 50, fi);
 
         }
-
-        printf("Nombre:%s\n", nombre);
-        printf("Fichas:%d\n", numfichas);
-        printf("Manos_ganadas: %d\n", numganadas);
-        printf("Manos_perdidas: %d\n", numperdidas);
-        printf("Manos_empatadas: %d\n", numempatadas);
-
         fclose(fi);
 
     }
