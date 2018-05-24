@@ -38,11 +38,16 @@ void partida(Baralles c, Jugador j){
         scanf("%d", &apuestaJugador);
     }
 
+
+
     j.fichas= j.fichas-apuestaJugador;
     mano[0]= dameCarta(&c);
     resultado = mano[0];
     mano[1] = dameCarta(&c);
     resultado = resultado + mano[1];
+
+    printf("\nTe quedan: %d fichas\n", retornaFichasJugador(j));
+    printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
 
     turnoBots(manoMasAlta, &c);
 
@@ -52,8 +57,8 @@ void partida(Baralles c, Jugador j){
         partidaEnJuego=0;
     }
 
-    printf("Te quedan: %d fichas\n", retornaFichasJugador(j));
-    printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
+
+
 
     manocroupier[0]= dameCarta(&c);
     resultadoCroupier = resultadoCroupier+manocroupier[0];
