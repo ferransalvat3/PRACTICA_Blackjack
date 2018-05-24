@@ -117,16 +117,6 @@ void turnoBots(int manoMasAlta, Baralles *c){
     int ii=0;
     int ultimaCarta=0;
     int turnoBot=0;
-    //arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
-
-    // Simulacion de crear bots, borrar despues
-//    strcpy(arrayBots[0].caracter, "debil");
-//    arrayBots[0].fichas=9880;
-//    strcpy(arrayBots[1].caracter, "debil");
-//    arrayBots[1].fichas=9444;
-//    strcpy(arrayBots[2].caracter, "fuerte");
-//    arrayBots[2].fichas=904;
-    //---------
 
     for (i = 0; i <numeroBots ; i++) {
         if (retornaApuesta(arrayBots[i])==0){
@@ -206,9 +196,13 @@ void compruebaBotGanador(int resultadoCrupier) {
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot * 2);
                 printf("\nEl bot %s ha ganado esta ronda",  arrayBots[i].nombre);
             }else if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot == resultadoCrupier) {
-                arrayBots[i].victorias = arrayBots[i].victorias + 1;
+                arrayBots[i].empates = arrayBots[i].empates + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot);
                 printf("\nEl bot %s empata con el crupier",  arrayBots[i].nombre);
+            } else{
+                arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
+                arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot);
+                printf("\nEl bot %s pierde",  arrayBots[i].nombre);
             }
         }
     } else if(resultadoCrupier>21){
@@ -241,8 +235,6 @@ void ficherobot(){
     }else{
         fscanf(fi, "%i", &numeroBots);
         arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
-        printf("Num.Bots: %d\n", numeroBots);
-        //fgets(nombre, 50, fi);
         fscanf(fi, "%c", &aux[0]);
 
         for (i =0; i<=numeroBots; i++){

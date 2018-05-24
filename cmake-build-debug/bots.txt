@@ -1,11 +1,11 @@
-4
+3
 An Tonio
 2322
-Fuerte
+normal
 17
 Moreno
-12
-Fuerte
+12000
+fuerte
 4
 fe rran
 12345
