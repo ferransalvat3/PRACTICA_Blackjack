@@ -18,6 +18,9 @@ void main() {
         printf("No se pueden crear tantas barajas(1-4). Introduce un numero valido.\n");
         scanf("%d", &numbaralles);
     }
+    if (numbaralles>1 || numbaralles<4 ){
+        printf("La baralla se ha creado correctamente\n");
+    }
     c = barallaCrea(numbaralles);
 
     ficherobot();
