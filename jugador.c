@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <mem.h>
+//#include <mem.h>
+#include <string.h>
 #include "jugador.h"
 
 
@@ -28,6 +29,7 @@ Jugador ficherojugador(){
     int numperdidas = 0;
     int numempatadas = 0;
     char aux[5];
+    int n;
     Jugador j;
 
     fi = fopen("jugador.txt","rw");
@@ -35,6 +37,8 @@ Jugador ficherojugador(){
         printf("ERROR.");
     }else{
         fgets(nombre, 50, fi);
+        n = strlen(nombre);
+        nombre[n-1] = '\0';
         while (!feof(fi)) {
             fscanf(fi, "%d", &numfichas);
             fscanf(fi, "%c", &aux[0]);
@@ -48,6 +52,14 @@ Jugador ficherojugador(){
             fgets(nombre, 50, fi);
 
         }
+
+        /*
+        printf("\nNombre:%s\n", nombre);
+        printf("Fichas:%d\n", numfichas);
+        printf("Manos_ganadas: %d\n", numganadas);
+        printf("Manos_perdidas: %d\n", numperdidas);
+        printf("Manos_empatadas: %d\n", numempatadas);
+        */
         fclose(fi);
 
     }

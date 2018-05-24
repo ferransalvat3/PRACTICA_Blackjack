@@ -130,7 +130,7 @@ void turnoBots(int manoMasAlta, Baralles *c){
 
     for (i = 0; i <numeroBots ; i++) {
         if (retornaApuesta(arrayBots[i])==0){
-            printf("\nEl bot %i no puede apostar", i);
+            printf("\nEl bot %s no puede apostar", arrayBots[i].nombre);
             arrayBots[i].noApuesta=1;
         } else{
             arrayBots[i].noApuesta=0;
@@ -232,6 +232,7 @@ void ficherobot(){
     char aux[5];
     int  i;
     int j=0;
+    int n;
 
 
     FILE *fi=fopen("bots.txt","r");
@@ -241,15 +242,20 @@ void ficherobot(){
         fscanf(fi, "%i", &numeroBots);
         arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
         printf("Num.Bots: %d\n", numeroBots);
-        fgets(nombre, 50, fi);
+        //fgets(nombre, 50, fi);
+        fscanf(fi, "%c", &aux[0]);
 
         for (i =0; i<=numeroBots; i++){
             while (!feof(fi)) {
 
                 fgets(nombre, 50, fi);
+                n = strlen(nombre);
+                nombre[n-1] = '\0';
                 fscanf(fi, "%d", &numfichas);
                 fscanf(fi, "%c", &aux[0]);
                 fgets(caracter, 50, fi);
+                n = strlen(caracter);
+                caracter[n-1] = '\0';
                 fscanf(fi, "%d", &cartamax);
                 fscanf(fi, "%c", &aux[0]);
 

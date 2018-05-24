@@ -10,21 +10,21 @@ void main() {
     int numbaralles = 0;
 
 
-//
-//    printf("Indica el numero de barajas:\n");
-//    scanf("%d", &numbaralles);
-//
-//    while (numbaralles<1 || numbaralles>4){
-//        printf("No se pueden crear tantas barajas(1-4). Introduce un numero valido.\n");
-//        scanf("%d", &numbaralles);
-//    }
-//    c = barallaCrea(numbaralles);
+
+    printf("Indica el numero de barajas:\n");
+    scanf("%d", &numbaralles);
+
+    while (numbaralles<1 || numbaralles>4){
+        printf("No se pueden crear tantas barajas(1-4). Introduce un numero valido.\n");
+        scanf("%d", &numbaralles);
+    }
+    c = barallaCrea(numbaralles);
 
     ficherobot();
-//    j=ficherojugador();
-//
-//
-//    partida(c,j);
+    j=ficherojugador();
+
+
+    partida(c,j);
 
 
 

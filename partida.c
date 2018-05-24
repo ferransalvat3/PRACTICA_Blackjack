@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <mem.h>
+#include <string.h>
+//#include <mem.h>
 #include "partida.h"
 #include "bot.h"
 #include "comprobaciones.h"
