@@ -28,6 +28,7 @@ void main() {
 
 
     while (1) {
+        c = barallaCrea(numbaralles);
         partida(c, j);
         estadisticasBot();
     }

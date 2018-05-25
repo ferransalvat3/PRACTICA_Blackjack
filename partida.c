@@ -48,8 +48,6 @@ void comprobaciones(Jugador j){
 }
 
 void partida(Baralles c, Jugador j){
-
-
     posicionmano=0;
     resultado=0;
     partidaEnJuego=1;

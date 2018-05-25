@@ -277,10 +277,17 @@ void ficherobot(){
 }
 
 void estadisticasBot(){
-    int partidasTotales=0;
     int i=0;
     for(i=0;i<numeroBots;i++){
-        printf("\nEl bot %s tiene %i partidas ganadas (%i %%), %i empates (%i %%) y %i derrotas (%i %%) y le quedan %i fichas", arrayBots[i].nombre,arrayBots[i].victorias,arrayBots[i].victorias/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,arrayBots[i].empates,arrayBots[i].empates/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,arrayBots[i].derrotas,arrayBots[i].derrotas/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100, arrayBots[i].fichas);
+        printf("\nEl bot %s tiene %i partidas ganadas (%f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %i fichas",
+               arrayBots[i].nombre,
+               arrayBots[i].victorias,
+               (float)arrayBots[i].victorias/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,
+               arrayBots[i].empates,
+               (float)arrayBots[i].empates/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,
+               arrayBots[i].derrotas,
+               (float)arrayBots[i].derrotas/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,
+               arrayBots[i].fichas);
     }
 
 }
