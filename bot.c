@@ -140,10 +140,10 @@ void turnoBots(int manoMasAlta, Baralles *c){
             printf("\nEl bot %s tiene en la mano un %i y un %i",  arrayBots[i].nombre, arrayBots[i].manobot[0], arrayBots[i].manobot[1]);
             printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
 
-            if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot) == 1) {
-                printf("El bot %s ha hecho blackjack a la primera",  arrayBots[i].nombre);
-                arrayBots[i].puedeGanar = 1;
-            }
+//            if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot) == 1) {
+//                printf("El bot %s ha hecho blackjack a la primera",  arrayBots[i].nombre);
+//                arrayBots[i].puedeGanar = 1;
+//            }
         }
 
     }
@@ -167,8 +167,7 @@ void turnoBots(int manoMasAlta, Baralles *c){
                     }
 
                 } else {
-                    if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot) == 1 ||
-                        teHasPasado(arrayBots[i].puntuacionCartasBot) == 0) {
+                    if (teHasPasado(arrayBots[i].puntuacionCartasBot) == 1) {
                         arrayBots[i].puedeGanar = 1;
                     }
                     printf("\nEl bot %s pasa de turno",  arrayBots[i].nombre);
@@ -191,7 +190,11 @@ void compruebaBotGanador(int resultadoCrupier) {
     int i = 0;
     if (resultadoCrupier <= 21) {
         for (i = 0; i < numeroBots; i++) {
-            if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot > resultadoCrupier) {
+            if(teHasPasado(arrayBots[i].puntuacionCartasBot)==1){
+                arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
+                arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot);
+                printf("\nEl bot %s pierde",  arrayBots[i].nombre);
+            }else if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot > resultadoCrupier) {
                 arrayBots[i].victorias = arrayBots[i].victorias + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot * 2);
                 printf("\nEl bot %s ha ganado esta ronda",  arrayBots[i].nombre);
@@ -199,7 +202,7 @@ void compruebaBotGanador(int resultadoCrupier) {
                 arrayBots[i].empates = arrayBots[i].empates + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot);
                 printf("\nEl bot %s empata con el crupier",  arrayBots[i].nombre);
-            } else{
+            } else if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot < resultadoCrupier){
                 arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot);
                 printf("\nEl bot %s pierde",  arrayBots[i].nombre);
@@ -251,18 +254,11 @@ void ficherobot(){
                 fscanf(fi, "%d", &cartamax);
                 fscanf(fi, "%c", &aux[0]);
 
-            /*
-                printf("\nNombre:%s", nombre);
-                printf("\nFichas:%d", numfichas);
-                printf("\nCaracter: %s", caracter);
-                printf("\nCarta Maxima: %d", cartamax);
-
-             */
-
                 strcpy(arrayBots[j].nombre, nombre);
                 strcpy(arrayBots[j].caracter, caracter);
                 arrayBots[j].fichas=numfichas;
                 arrayBots[j].cartaMaxima=cartamax;
+                arrayBots[j].puedeGanar=1;
                 j++;
             }
         }
