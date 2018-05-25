@@ -25,6 +25,7 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b);
 void turnoBots(int manoMasAlta, Baralles *c);
 void compruebaBotGanador(int resultadoCrupier);
 void ficherobot();
+void estadisticasBot();
 
 void print();
 

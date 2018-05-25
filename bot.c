@@ -15,6 +15,11 @@ int apuestaNormal=500;
 int apuestaFuerte=900;
 Bot *arrayBots;
 int numeroBots=0;
+Bot b;
+int i;
+int ii;
+int ultimaCarta;
+int turnoBot;
 
 
 void muestraCartasBots(int numBots){
@@ -112,12 +117,11 @@ int comprobarCartasSegunCaracter(Bot b, int ultimaCarta){
 }
 
 void turnoBots(int manoMasAlta, Baralles *c){
-    Bot b;
-    int i=0;
-    int ii=0;
-    int ultimaCarta=0;
-    int turnoBot=0;
 
+    i=0;
+    ii=0;
+    ultimaCarta=0;
+    turnoBot=0;
     for (i = 0; i <numeroBots ; i++) {
         if (retornaApuesta(arrayBots[i])==0){
             printf("\nEl bot %s no puede apostar", arrayBots[i].nombre);
@@ -125,6 +129,7 @@ void turnoBots(int manoMasAlta, Baralles *c){
         } else{
             arrayBots[i].noApuesta=0;
             arrayBots[i].apuestaBot=retornaApuesta(arrayBots[i]);
+            arrayBots[i].fichas= arrayBots[i].fichas-arrayBots[i].apuestaBot;
             printf("\nEl bot %s apuesta: %i", arrayBots[i].nombre, arrayBots[i].apuestaBot);
         }
     }
@@ -140,10 +145,6 @@ void turnoBots(int manoMasAlta, Baralles *c){
             printf("\nEl bot %s tiene en la mano un %i y un %i",  arrayBots[i].nombre, arrayBots[i].manobot[0], arrayBots[i].manobot[1]);
             printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
 
-//            if (compruebaBlackJack(arrayBots[i].puntuacionCartasBot) == 1) {
-//                printf("El bot %s ha hecho blackjack a la primera",  arrayBots[i].nombre);
-//                arrayBots[i].puedeGanar = 1;
-//            }
         }
 
     }
@@ -214,6 +215,9 @@ void compruebaBotGanador(int resultadoCrupier) {
                 arrayBots[i].victorias = arrayBots[i].victorias + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot * 2);
                 printf("\nEl bot %s ha ganado esta ronda",  arrayBots[i].nombre);
+            } else{
+                arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
+                printf("\nEl bot %s ha perdido esta ronda",  arrayBots[i].nombre);
             }
         }
     }
@@ -259,12 +263,24 @@ void ficherobot(){
                 arrayBots[j].fichas=numfichas;
                 arrayBots[j].cartaMaxima=cartamax;
                 arrayBots[j].puedeGanar=1;
+                arrayBots[j].victorias=0;
+                arrayBots[j].empates=0;
+                arrayBots[j].derrotas=0;
                 j++;
             }
         }
 
 
         fclose(fi);
+    }
+
+}
+
+void estadisticasBot(){
+    int partidasTotales=0;
+    int i=0;
+    for(i=0;i<numeroBots;i++){
+        printf("\nEl bot %s tiene %i partidas ganadas (%i %%), %i empates (%i %%) y %i derrotas (%i %%) y le quedan %i fichas", arrayBots[i].nombre,arrayBots[i].victorias,arrayBots[i].victorias/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,arrayBots[i].empates,arrayBots[i].empates/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,arrayBots[i].derrotas,arrayBots[i].derrotas/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100, arrayBots[i].fichas);
     }
 
 }

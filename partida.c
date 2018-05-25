@@ -25,7 +25,7 @@ int resultadoCroupier=0;
 int apuestaJugador=0;
 int numbaralles = 0;
 int manoMasAlta=0;
-int i=0;
+int i;
 
 void comprobaciones(Jugador j){
 
@@ -50,6 +50,14 @@ void comprobaciones(Jugador j){
 void partida(Baralles c, Jugador j){
 
 
+    posicionmano=0;
+    resultado=0;
+    partidaEnJuego=1;
+    noSePidenMasCartas=0;
+    juegoCrupier=1;
+    resultadoCroupier=0;
+    apuestaJugador=0;
+    i=0;
 
     srand(time(NULL));
 

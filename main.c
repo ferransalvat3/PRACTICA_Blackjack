@@ -27,8 +27,10 @@ void main() {
     j=ficherojugador();
 
 
-    partida(c,j);
-
+    while (1) {
+        partida(c, j);
+        estadisticasBot();
+    }
 
 
 
