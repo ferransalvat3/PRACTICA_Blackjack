@@ -24,14 +24,14 @@ Baralles barallaCrea(int numbaralles){
 
             for (i = 0; i < c.numCartes; i++) {
                 barallaOrd[i] = baralla[i % 13];
-                //printf("%d-", barallaOrd[i]);
+                printf("%d-", barallaOrd[i]);
             }
 
             srand(time(NULL));
             for (i = 0; i < c.numCartes; i++) {
                 barallaRand = rand() % (c.numCartes);
                 //barallaRand = barallaOrd[i];
-                //printf("\n%d" ,barallaOrd[i]);
+                //printf("--%d" ,barallaOrd[i]);
                 PILA_push(&c.p, barallaOrd[barallaRand]);
             }
 
