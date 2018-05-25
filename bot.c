@@ -23,7 +23,7 @@ void muestraCartasBots(int numBots){
 
     for(i=0; i<numBots;i++){
         for(ii=0;ii<10;ii++){
-            if(arrayBots[i].manobot[ii]!=0)
+            if(arrayBots[i].manobot[ii]>0 && arrayBots[i].manobot[ii]<22)
             printf("\nEl bot %s tiene en la mano %i",  arrayBots[i].nombre, arrayBots[i].manobot[ii]);
         }
     }
