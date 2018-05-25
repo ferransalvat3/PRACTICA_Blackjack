@@ -27,6 +27,26 @@ int numbaralles = 0;
 int manoMasAlta=0;
 int i=0;
 
+void comprobaciones(Jugador j){
+
+    if (compruebaManos(resultado, resultadoCroupier) == 1) {
+        if(teHasPasado(resultadoCroupier)==0) {
+            printf("\nEl crupier te ha ganado\n");
+            j.manos_perdidas = j.manos_perdidas + 1;
+        }
+        printf("Tienes %i manos perdidas\n", j.manos_perdidas);
+    } else if (compruebaManos(resultado, resultadoCroupier) == 2) {
+        printf("\nEnhorabuena, has ganado\n");
+        j.manos_ganadas = j.manos_ganadas + 1;
+        printf("Tienes %i manos ganadas\n", j.manos_ganadas);
+    } else {
+        printf("\nEmpate entre el crupier y tu\n");
+        j.manos_empatadas= j.manos_empatadas+1;
+        printf("Tienes %i manos empatadas\n", j.manos_empatadas);
+    }
+
+}
+
 void partida(Baralles c, Jugador j){
 
 
@@ -154,22 +174,3 @@ void partida(Baralles c, Jugador j){
 }
 
 
-void comprobaciones(Jugador j){
-
-    if (compruebaManos(resultado, resultadoCroupier) == 1) {
-        if(teHasPasado(resultadoCroupier)==0) {
-            printf("\nEl crupier te ha ganado\n");
-            j.manos_perdidas = j.manos_perdidas + 1;
-        }
-        printf("Tienes %i manos perdidas\n", j.manos_perdidas);
-    } else if (compruebaManos(resultado, resultadoCroupier) == 2) {
-        printf("\nEnhorabuena, has ganado\n");
-        j.manos_ganadas = j.manos_ganadas + 1;
-        printf("Tienes %i manos ganadas\n", j.manos_ganadas);
-    } else {
-        printf("\nEmpate entre el crupier y tu\n");
-        j.manos_empatadas= j.manos_empatadas+1;
-        printf("Tienes %i manos empatadas\n", j.manos_empatadas);
-    }
-
-}
