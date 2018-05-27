@@ -277,7 +277,7 @@ void ficherobot(){
 void estadisticasBot(){
     int i=0;
     for(i=0;i<numeroBots;i++){
-        printf("\nEl bot %s tiene %i partidas ganadas (%f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %i fichas",
+        printf("\nEl bot %s tiene %i partidas ganadas (%.2f %%), %i empates (%.2f %%) y %i derrotas (%.2f %%) y le quedan %i fichas",
                arrayBots[i].nombre,
                arrayBots[i].victorias,
                (float)arrayBots[i].victorias/(arrayBots[i].victorias+arrayBots[i].empates+arrayBots[i].derrotas)*100,

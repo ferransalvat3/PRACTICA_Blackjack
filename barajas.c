@@ -24,7 +24,7 @@ Baralles barallaCrea(int numbaralles){
 
             for (i = 0; i < c.numCartes; i++) {
                 barallaOrd[i] = baralla[i % 13];
-                printf("%d-", barallaOrd[i]);
+                //printf("%d-", barallaOrd[i]);
             }
 
             srand(time(NULL));
