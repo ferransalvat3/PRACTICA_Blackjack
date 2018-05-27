@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "bot.h"
-#include "barajas.h"
 #include "comprobaciones.h"
 #include "mesa.h"
 
@@ -193,18 +192,18 @@ void compruebaBotGanador(int resultadoCrupier) {
         for (i = 0; i < numeroBots; i++) {
             if(teHasPasado(arrayBots[i].puntuacionCartasBot)==1){
                 arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
-                printf("\nEl bot %s pierde",  arrayBots[i].nombre);
+                printf("El bot %s pierde\n",  arrayBots[i].nombre);
             }else if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot > resultadoCrupier) {
                 arrayBots[i].victorias = arrayBots[i].victorias + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot * 2);
-                printf("\nEl bot %s ha ganado esta ronda",  arrayBots[i].nombre);
+                printf("El bot %s ha ganado esta ronda\n",  arrayBots[i].nombre);
             }else if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot == resultadoCrupier) {
                 arrayBots[i].empates = arrayBots[i].empates + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot);
-                printf("\nEl bot %s empata con el crupier",  arrayBots[i].nombre);
+                printf("El bot %s empata con el crupier\n",  arrayBots[i].nombre);
             } else if (arrayBots[i].puedeGanar == 1 && arrayBots[i].puntuacionCartasBot < resultadoCrupier){
                 arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
-                printf("\nEl bot %s pierde",  arrayBots[i].nombre);
+                printf("El bot %s pierde\n",  arrayBots[i].nombre);
             }
         }
     } else if(resultadoCrupier>21){
@@ -212,10 +211,10 @@ void compruebaBotGanador(int resultadoCrupier) {
             if (arrayBots[i].puntuacionCartasBot<=21) {
                 arrayBots[i].victorias = arrayBots[i].victorias + 1;
                 arrayBots[i].fichas = arrayBots[i].fichas + (arrayBots[i].apuestaBot * 2);
-                printf("\nEl bot %s ha ganado esta ronda",  arrayBots[i].nombre);
+                printf("\nEl bot %s ha ganado esta ronda\n",  arrayBots[i].nombre);
             } else{
                 arrayBots[i].derrotas = arrayBots[i].derrotas + 1;
-                printf("\nEl bot %s ha perdido esta ronda",  arrayBots[i].nombre);
+                printf("\nEl bot %s ha perdido esta ronda\n",  arrayBots[i].nombre);
             }
         }
     }

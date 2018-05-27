@@ -1,9 +1,7 @@
 #include "PilaCartas.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <memory.h>
-#include "barajas.h"
+
 
 Pila PILA_crea() {
     Pila p;
@@ -54,7 +52,7 @@ int PILA_vacia(Pila p) {
     return p == NULL;
 }
 
-void PILA_destruye(Pila *p) {
+/*void PILA_destruye(Pila *p) {
     Nodo *aux;
     while (*p != NULL) {
         aux = *p;
@@ -63,7 +61,7 @@ void PILA_destruye(Pila *p) {
     }
 
 }
-
+*/
 
 
 

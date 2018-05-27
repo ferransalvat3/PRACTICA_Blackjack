@@ -6,11 +6,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-//#include <mem.h>
 #include "partida.h"
 #include "bot.h"
 #include "comprobaciones.h"
-#include "jugador.h"
+
 
 
 char respuesta[3];
@@ -23,9 +22,9 @@ int noSePidenMasCartas=0;
 int juegoCrupier=1;
 int resultadoCroupier=0;
 int apuestaJugador=0;
-int numbaralles = 0;
 int manoMasAlta=0;
 int i;
+
 
 void comprobaciones(Jugador j){
 
@@ -79,6 +78,7 @@ void partida(Baralles c, Jugador j){
 
     if (compruebaBlackJack(resultado) == 1) {
         printf("ENHORABUENA! TIENES BLACKJACK A LA PRIMERA!\n");
+        j.manos_ganadas = j.manos_ganadas + 1;
         noSePidenMasCartas=1;
         partidaEnJuego=0;
     }
@@ -89,7 +89,7 @@ void partida(Baralles c, Jugador j){
 
     if (compruebaBlackJack(resultadoCroupier) == 1) {
         juegoCrupier=0;
-        printf("El crupier ha hech Blackjack a la primera");
+        printf("El crupier ha hech Blackjack a la primera\n");
     }
     if (partidaEnJuego!=0) {
         do {
@@ -152,7 +152,7 @@ void partida(Baralles c, Jugador j){
                             printf("El crupier te ha ganado");
                             j.manos_perdidas= j.manos_perdidas+1;
                         } else if(compruebaBlackJack(resultado)==1){
-                            printf("El crupier ha hecho blackjack igual que tu, empatais");
+                            printf("El crupier ha hecho blackjack igual que tu, empatais\n");
                             j.manos_empatadas= j.manos_empatadas;
                         }
                         comprobaciones(j);
@@ -167,7 +167,7 @@ void partida(Baralles c, Jugador j){
 
         } while (juegoCrupier == 1);
     }
-    printf("El crupier no pide mas");
+    printf("El crupier no pide mas\n");
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
@@ -178,5 +178,6 @@ void partida(Baralles c, Jugador j){
     compruebaBotGanador(resultadoCroupier);
 
 }
+
 
 

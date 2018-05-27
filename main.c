@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include "jugador.h"
-#include "partida.h"
-#include "bot.h"
+#include "menu.h"
 
 
 void main() {
     Jugador j;
     Baralles c;
-    int numbaralles = 0;
+    int opcion = 0;
+
+
+   menuPrincipal(opcion);
 
 
 
+/*
     printf("Indica el numero de barajas:\n");
     scanf("%d", &numbaralles);
 
@@ -31,8 +34,9 @@ void main() {
         c = barallaCrea(numbaralles);
         partida(c, j);
         estadisticasBot();
+        estadisticasJugador();
     }
-
+*/
 
 
 

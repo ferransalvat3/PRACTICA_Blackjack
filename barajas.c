@@ -2,7 +2,6 @@
 // Created by Ferran Salvat on 14/5/18.
 //
 #include <stdlib.h>
-#include <stdio.h>
 #include <time.h>
 #include "barajas.h"
 

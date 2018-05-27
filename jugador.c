@@ -1,5 +1,4 @@
 #include <stdio.h>
-//#include <mem.h>
 #include <string.h>
 #include "jugador.h"
 
@@ -53,13 +52,14 @@ Jugador ficherojugador(){
 
         }
 
-        /*
+
         printf("\nNombre:%s\n", nombre);
         printf("Fichas:%d\n", numfichas);
         printf("Manos_ganadas: %d\n", numganadas);
         printf("Manos_perdidas: %d\n", numperdidas);
         printf("Manos_empatadas: %d\n", numempatadas);
-        */
+
+
         fclose(fi);
 
     }
@@ -69,5 +69,28 @@ Jugador ficherojugador(){
     j.manos_perdidas=numperdidas;
     j.manos_empatadas=numempatadas;
 
+
     return j;
 }
+
+
+void estadisticasJugador(){
+
+    Jugador j;
+    int totalpartides =  0;
+    totalpartides = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
+
+
+    printf("\nEl jugador %s tiene %i partidas ganadas (%f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %d fichas",
+           j.nombre,
+           j.manos_ganadas,
+           (float)j.manos_ganadas/(totalpartides*100),
+           j.manos_empatadas,
+           (float)j.manos_empatadas/(totalpartides*100),
+           j.manos_perdidas,
+           (float)j.manos_perdidas/(totalpartides*100),
+           j.fichas);
+
+}
+
+

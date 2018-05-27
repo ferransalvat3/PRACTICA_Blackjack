@@ -27,6 +27,5 @@ void compruebaBotGanador(int resultadoCrupier);
 void ficherobot();
 void estadisticasBot();
 
-void print();
 
 #endif //BLACKJACK_BOT_H
