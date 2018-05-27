@@ -18,6 +18,7 @@ int  menuPrincipal(int opcion) {
     int numbaralles = 0;
 
 
+
     while(opcion <=3 )
         {
             printf("\nBLACKJACK\n");
