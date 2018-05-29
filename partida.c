@@ -56,7 +56,10 @@ void partida(Baralles c, Jugador j){
     apuestaJugador=0;
     i=0;
 
+
     srand(time(NULL));
+
+
 
     printf("Cuantas fichas vas a apostar?\n");
     scanf("%d", &apuestaJugador);

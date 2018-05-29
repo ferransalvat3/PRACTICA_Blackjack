@@ -56,15 +56,15 @@ int  menuPrincipal(int opcion) {
                         j=ficherojugador();
 
 
-                        while (1) {
-                            c = barallaCrea(numbaralles);
-                            partida(c, j);
-                            menuPrincipal(opcion);
+                            while (1) {
+                                c = barallaCrea(numbaralles);
+                                partida(c, j);
+                                menuPrincipal(opcion);
+                                break;
+                                //estadisticasBot();
+                                // estadisticasJugador();
+                            }
 
-                            //estadisticasBot();
-                           // estadisticasJugador();
-
-                        }
                         break;
 
 

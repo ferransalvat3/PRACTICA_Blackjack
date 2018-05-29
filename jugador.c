@@ -21,6 +21,7 @@ int retornaFichasJugador(Jugador j){
 
 Jugador ficherojugador(){
 
+    Jugador j;
     FILE *fi;
     char nombre[50];
     int numfichas = 0;
@@ -29,7 +30,8 @@ Jugador ficherojugador(){
     int numempatadas = 0;
     char aux[5];
     int n;
-    Jugador j;
+    int i;
+    int totalpartides = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
 
     fi = fopen("jugador.txt","rw");
     if (fi==NULL){
@@ -48,7 +50,14 @@ Jugador ficherojugador(){
             fscanf(fi, "%d", &numempatadas);
             fscanf(fi, "%c", &aux[0]);
 
-            fgets(nombre, 50, fi);
+            //fgets(nombre, 50, fi);
+
+            fprintf(fi, "manos_ganadas:", j.manos_ganadas);
+            fprintf(fi, "manos_perdidas:", j.manos_perdidas);
+            fprintf(fi, "manos_empatadas:", j.manos_empatadas);
+            for (i = 0; i<totalpartides; i++){
+                fprintf(fi, "fichas_partida_%i", j.fichas);
+            }
 
         }
 
@@ -81,7 +90,7 @@ void estadisticasJugador(){
     totalpartides = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
 
 
-    printf("\nEl jugador %s tiene %i partidas ganadas (%f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %d fichas",
+    printf("\nEl jugador %s tiene %i partidas ganadas (%.2f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %d fichas",
            j.nombre,
            j.manos_ganadas,
            (float)j.manos_ganadas/(totalpartides*100),
