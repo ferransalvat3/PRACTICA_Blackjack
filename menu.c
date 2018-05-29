@@ -53,7 +53,7 @@ int  menuPrincipal(int opcion) {
                     case 2:
                         //menuJugar(opcion);
                         ficherobot();
-                        j=ficherojugador();
+                        j=ficherojugador(j);
 
 
                             while (1) {
@@ -69,7 +69,7 @@ int  menuPrincipal(int opcion) {
 
 
                     case 3:
-                        menuEstadistica(opcion);
+                        menuEstadistica(opcion,j);
                         break;
 
                     case 4:
@@ -84,50 +84,9 @@ int  menuPrincipal(int opcion) {
     return opcion;
 }
 
-/*
-int menuJugar(int opcion ) {
 
 
-    while(opcion <= 4)
-    {
-        printf("Que quieres hacer?\n");
-        printf("1- Perdir cartas.\n");
-        printf("2- Plantarse.\n");
-        printf("3- Rendirse.\n");
-        printf("4- Abandonar partida.\n");
-
-
-        printf("Opcion: _\n");
-        scanf("%d", &opcion);
-
-        if (opcion > 4){
-            printf("Opcio incorrecte, vuelve a introducir una opcion (1-4)\n");
-        }else{
-            switch(opcion){
-                case 1:
-
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-
-                    break;
-                case 4:
-                    break;
-
-
-
-            }
-
-        }
-    }
-    return opcion;
-}
-
- */
-
-int menuEstadistica(int opcion){
+int menuEstadistica(int opcion, Jugador j){
 
 
     while(opcion < 4)
@@ -147,7 +106,7 @@ int menuEstadistica(int opcion){
         }else{
             switch(opcion){
                 case 1:
-                    estadisticasJugador();
+                    estadisticasJugador(j);
                     break;
                 case 2:
                     estadisticasBot();

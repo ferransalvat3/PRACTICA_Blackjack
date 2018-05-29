@@ -19,9 +19,8 @@ int retornaFichasJugador(Jugador j){
     return j.fichas;
 }
 
-Jugador ficherojugador(){
+Jugador ficherojugador(Jugador j){
 
-    Jugador j;
     FILE *fi;
     char nombre[50];
     int numfichas = 0;
@@ -30,8 +29,7 @@ Jugador ficherojugador(){
     int numempatadas = 0;
     char aux[5];
     int n;
-    int i;
-    int totalpartides = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
+    //Jugador j;
 
     fi = fopen("jugador.txt","rw");
     if (fi==NULL){
@@ -41,23 +39,22 @@ Jugador ficherojugador(){
         n = strlen(nombre);
         nombre[n-1] = '\0';
         while (!feof(fi)) {
-            fscanf(fi, "%d", &numfichas);
+            fscanf(fi, "%i", &numfichas);
             fscanf(fi, "%c", &aux[0]);
-            fscanf(fi, "%d", &numganadas);
+            fscanf(fi, "%i", &numganadas);
             fscanf(fi, "%c", &aux[0]);
-            fscanf(fi, "%d", &numperdidas);
+            fscanf(fi, "%i", &numperdidas);
             fscanf(fi, "%c", &aux[0]);
-            fscanf(fi, "%d", &numempatadas);
+            fscanf(fi, "%i", &numempatadas);
             fscanf(fi, "%c", &aux[0]);
 
-            //fgets(nombre, 50, fi);
+            fgets(nombre, 50, fi);
 
-            fprintf(fi, "manos_ganadas:", j.manos_ganadas);
-            fprintf(fi, "manos_perdidas:", j.manos_perdidas);
-            fprintf(fi, "manos_empatadas:", j.manos_empatadas);
-            for (i = 0; i<totalpartides; i++){
-                fprintf(fi, "fichas_partida_%i", j.fichas);
-            }
+            strcpy(j.nombre, nombre);
+            j.fichas = numfichas;
+            j.manos_ganadas=numganadas;
+            j.manos_perdidas=numperdidas;
+            j.manos_empatadas=numempatadas;
 
         }
 
@@ -72,25 +69,20 @@ Jugador ficherojugador(){
         fclose(fi);
 
     }
-    strcpy(j.nombre, nombre);
-    j.fichas = numfichas;
-    j.manos_ganadas=numganadas;
-    j.manos_perdidas=numperdidas;
-    j.manos_empatadas=numempatadas;
+
 
 
     return j;
 }
 
 
-void estadisticasJugador(){
+void estadisticasJugador(Jugador j){
 
-    Jugador j;
     int totalpartides =  0;
     totalpartides = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
 
 
-    printf("\nEl jugador %s tiene %i partidas ganadas (%.2f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %d fichas",
+    printf("\nEl jugador %s tiene %i partidas ganadas (%f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %i fichas",
            j.nombre,
            j.manos_ganadas,
            (float)j.manos_ganadas/(totalpartides*100),
