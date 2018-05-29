@@ -60,7 +60,7 @@ Jugador ficherojugador(Jugador j){
 
             fprintf(fi, "manos_ganadas: %i", j.manos_ganadas);
             fprintf(fi, "manos_perdidas: %i", j.manos_perdidas);
-            fprintf(fi, "manos:empatadas: %i", j.manos_empatadas);
+            fprintf(fi, "manos_empatadas: %i", j.manos_empatadas);
 
             for(i=0; i<totalpartidas; i++){
                 fprintf(fi, "fichas_partida_%i", j.fichas);
