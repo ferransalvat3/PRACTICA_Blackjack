@@ -29,6 +29,8 @@ Jugador ficherojugador(Jugador j){
     int numempatadas = 0;
     char aux[5];
     int n;
+    int i;
+    int totalpartidas = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
     //Jugador j;
 
     fi = fopen("jugador.txt","rw");
@@ -55,6 +57,14 @@ Jugador ficherojugador(Jugador j){
             j.manos_ganadas=numganadas;
             j.manos_perdidas=numperdidas;
             j.manos_empatadas=numempatadas;
+
+            fprintf(fi, "manos_ganadas: %i", j.manos_ganadas);
+            fprintf(fi, "manos_perdidas: %i", j.manos_perdidas);
+            fprintf(fi, "manos:empatadas: %i", j.manos_empatadas);
+
+            for(i=0; i<totalpartidas; i++){
+                fprintf(fi, "fichas_partida_%i", j.fichas);
+            }
 
         }
 
