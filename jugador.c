@@ -50,7 +50,6 @@ Jugador ficherojugador(Jugador j){
             fscanf(fi, "%i", &numempatadas);
             fscanf(fi, "%c", &aux[0]);
 
-            fgets(nombre, 50, fi);
 
             strcpy(j.nombre, nombre);
             j.fichas = numfichas;
