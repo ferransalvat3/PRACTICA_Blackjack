@@ -20,6 +20,6 @@ int retornaPartidasGanadas(Jugador j);
 int compruebaFichasJugador(Jugador j, int fichas);
 int retornaFichasJugador(Jugador j);
 Jugador ficherojugador(Jugador j);
-void estadisticasJugador(Jugador j);
+void estadisticasJugador(Jugador *j);
 
 #endif //BLACKJACK_JUGADOR_H

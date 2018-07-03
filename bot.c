@@ -1,6 +1,3 @@
-//
-// Created by Ferran Salvat on 2/5/18.
-//
 
 #include <stdio.h>
 #include <string.h>
@@ -9,12 +6,9 @@
 #include "comprobaciones.h"
 #include "mesa.h"
 
-int apuestaDebil=100;
-int apuestaNormal=500;
-int apuestaFuerte=900;
+
 Bot *arrayBots;
 int numeroBots=0;
-Bot b;
 int i;
 int ii;
 int ultimaCarta;
@@ -22,6 +16,7 @@ int turnoBot;
 
 
 void muestraCartasBots(int numBots){
+
     int i=0;
     int ii=0;
 
@@ -34,6 +29,11 @@ void muestraCartasBots(int numBots){
 }
 
 int retornaApuesta(Bot b){
+
+    int apuestaDebil=100;
+    int apuestaNormal=500;
+    int apuestaFuerte=900;
+
         if (strcmp(b.caracter, "debil") == 0) {
             if(b.fichas>=20){
                 if(b.fichas>apuestaDebil){

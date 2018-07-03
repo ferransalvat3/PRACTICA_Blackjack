@@ -85,21 +85,21 @@ Jugador ficherojugador(Jugador j){
 }
 
 
-void estadisticasJugador(Jugador j){
+void estadisticasJugador(Jugador *j){
 
     int totalpartides =  0;
-    totalpartides = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
+    totalpartides = j->manos_ganadas+j->manos_perdidas+j->manos_empatadas;
 
 
     printf("\nEl jugador %s tiene %i partidas ganadas (%f %%), %i empates (%f %%) y %i derrotas (%f %%) y le quedan %i fichas",
-           j.nombre,
-           j.manos_ganadas,
-           (float)j.manos_ganadas/(totalpartides*100),
-           j.manos_empatadas,
-           (float)j.manos_empatadas/(totalpartides*100),
-           j.manos_perdidas,
-           (float)j.manos_perdidas/(totalpartides*100),
-           j.fichas);
+           j->nombre,
+           j->manos_ganadas,
+           (float)j->manos_ganadas/(totalpartides*100),
+           j->manos_empatadas,
+           (float)j->manos_empatadas/(totalpartides*100),
+           j->manos_perdidas,
+           (float)j->manos_perdidas/(totalpartides*100),
+           j->fichas);
 
 }
 

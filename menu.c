@@ -1,7 +1,3 @@
-//
-// Created by Ferran Salvat on 16/5/18.
-//
-
 #include "menu.h"
 #include "bot.h"
 #include "jugador.h"
@@ -51,7 +47,6 @@ int  menuPrincipal(int opcion) {
 
 
                     case 2:
-                        //menuJugar(opcion);
                         ficherobot();
                         j=ficherojugador(j);
 
@@ -61,8 +56,6 @@ int  menuPrincipal(int opcion) {
                                 partida(c, j);
                                 menuPrincipal(opcion);
                                 break;
-                                //estadisticasBot();
-                                // estadisticasJugador();
                             }
 
                         break;
@@ -106,7 +99,7 @@ int menuEstadistica(int opcion, Jugador j){
         }else{
             switch(opcion){
                 case 1:
-                    estadisticasJugador(j);
+                    estadisticasJugador(&j);
                     break;
                 case 2:
                     estadisticasBot();
