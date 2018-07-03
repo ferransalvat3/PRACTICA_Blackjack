@@ -12,7 +12,7 @@
 
 
 
-char respuesta[3];
+
 int posicionmano=2;
 int mano [10];
 int manocroupier [10];
@@ -23,7 +23,7 @@ int juegoCrupier=1;
 int resultadoCroupier=0;
 int apuestaJugador=0;
 int manoMasAlta=0;
-int i;
+
 
 
 void comprobaciones(Jugador j){
@@ -54,7 +54,8 @@ void partida(Baralles c, Jugador j){
     juegoCrupier=1;
     resultadoCroupier=0;
     apuestaJugador=0;
-    i=0;
+    int i;
+    char respuesta[3];
 
 
     srand(time(NULL));
