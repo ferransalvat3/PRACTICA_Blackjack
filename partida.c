@@ -13,20 +13,9 @@
 
 
 
-int posicionmano=2;
-int mano [10];
-int manocroupier [10];
-int resultado=0;
-int partidaEnJuego=1;
-int noSePidenMasCartas=0;
-int juegoCrupier=1;
 int resultadoCroupier=0;
-int apuestaJugador=0;
-int manoMasAlta=0;
 
-
-
-void comprobaciones(Jugador j){
+void comprobaciones(Jugador j, int resultado){
 
     if (compruebaManos(resultado, resultadoCroupier) == 1) {
         if(teHasPasado(resultadoCroupier)==0) {
@@ -47,15 +36,18 @@ void comprobaciones(Jugador j){
 }
 
 void partida(Baralles c, Jugador j){
-    posicionmano=0;
-    resultado=0;
-    partidaEnJuego=1;
-    noSePidenMasCartas=0;
-    juegoCrupier=1;
+    int posicionmano=2;
+    int mano [10];
+    int resultado=0;
+    int manocroupier [10];
+    int partidaEnJuego=1;
+    int noSePidenMasCartas=0;
+    int juegoCrupier=1;
     resultadoCroupier=0;
-    apuestaJugador=0;
+    int apuestaJugador=0;
     int i;
     char respuesta[3];
+    int manoMasAlta=0;
 
 
     srand(time(NULL));
@@ -159,7 +151,7 @@ void partida(Baralles c, Jugador j){
                             printf("El crupier ha hecho blackjack igual que tu, empatais\n");
                             j.manos_empatadas= j.manos_empatadas;
                         }
-                        comprobaciones(j);
+                        comprobaciones(j, resultado);
                         noSePidenMasCartas = 1;
                         break;
                     }
@@ -175,7 +167,7 @@ void partida(Baralles c, Jugador j){
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
-            comprobaciones(j);
+            comprobaciones(j, resultado);
         }
     }
 

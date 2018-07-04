@@ -9,8 +9,6 @@
 
 Bot *arrayBots;
 int numeroBots=0;
-int i;
-int ii;
 int ultimaCarta;
 int turnoBot;
 
@@ -117,8 +115,8 @@ int comprobarCartasSegunCaracter(Bot b, int ultimaCarta){
 
 void turnoBots(int manoMasAlta, Baralles *c){
 
-    i=0;
-    ii=0;
+    int i;
+    int ii;
     ultimaCarta=0;
     turnoBot=0;
     for (i = 0; i <numeroBots ; i++) {

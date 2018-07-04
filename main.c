@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "jugador.h"
+
 #include "menu.h"
 
 
