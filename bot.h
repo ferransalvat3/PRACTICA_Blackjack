@@ -26,6 +26,7 @@ void turnoBots(int manoMasAlta, Baralles *c);
 void compruebaBotGanador(int resultadoCrupier);
 void ficherobot();
 void estadisticasBot();
+int returnNumBots();
 
 
 #endif //BLACKJACK_BOT_H
