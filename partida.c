@@ -11,11 +11,7 @@
 #include "comprobaciones.h"
 
 
-
-
-int resultadoCroupier=0;
-
-void comprobaciones(Jugador j, int resultado){
+void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
 
     if (compruebaManos(resultado, resultadoCroupier) == 1) {
         if(teHasPasado(resultadoCroupier)==0) {
@@ -43,7 +39,7 @@ void partida(Baralles c, Jugador j){
     int partidaEnJuego=1;
     int noSePidenMasCartas=0;
     int juegoCrupier=1;
-    resultadoCroupier=0;
+    int resultadoCroupier=0;
     int apuestaJugador=0;
     int i;
     char respuesta[3];
@@ -151,7 +147,7 @@ void partida(Baralles c, Jugador j){
                             printf("El crupier ha hecho blackjack igual que tu, empatais\n");
                             j.manos_empatadas= j.manos_empatadas;
                         }
-                        comprobaciones(j, resultado);
+                        comprobaciones(j, resultado,resultadoCroupier);
                         noSePidenMasCartas = 1;
                         break;
                     }
@@ -167,7 +163,7 @@ void partida(Baralles c, Jugador j){
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
-            comprobaciones(j, resultado);
+            comprobaciones(j, resultado,resultadoCroupier);
         }
     }
 
