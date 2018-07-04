@@ -4,6 +4,7 @@
 
 void main() {
     int opcion = 0;
+
    menuPrincipal(opcion);
 }
 

@@ -7,7 +7,7 @@
 #include "mesa.h"
 
 
-Bot *arrayBots;
+//Bot *arrayBots;
 
 
 void muestraCartasBots(int numBots){
