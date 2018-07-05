@@ -114,8 +114,8 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
 
     int i;
     int ii;
-    int ultimaCarta;
-    int turnoBot;
+    int ultimaCarta=0;
+    int turnoBot=0;
     for (i = 0; i <returnNumBots() ; i++) {
         if (retornaApuesta(arrayBots[i])==0){
             printf("\nEl bot %s no puede apostar", arrayBots[i].nombre);
