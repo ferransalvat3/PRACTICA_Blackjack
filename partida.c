@@ -31,7 +31,7 @@ void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
 
 }
 
-void partida(Baralles c, Jugador j){
+void partida(Baralles c, Jugador j, Bot *arrayBots){
     int posicionmano=2;
     int mano [10];
     int resultado=0;
@@ -66,7 +66,7 @@ void partida(Baralles c, Jugador j){
     printf("\nTe quedan: %d fichas\n", retornaFichasJugador(j));
     printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
 
-    turnoBots(manoMasAlta, &c);
+    turnoBots(manoMasAlta, &c, arrayBots);
 
     if (compruebaBlackJack(resultado) == 1) {
         printf("ENHORABUENA! TIENES BLACKJACK A LA PRIMERA!\n");
@@ -167,7 +167,7 @@ void partida(Baralles c, Jugador j){
         }
     }
 
-    compruebaBotGanador(resultadoCroupier);
+    compruebaBotGanador(resultadoCroupier, arrayBots);
 
 }
 

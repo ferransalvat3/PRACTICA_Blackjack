@@ -7,10 +7,10 @@
 #include "mesa.h"
 
 
-Bot *arrayBots;
 
 
-void muestraCartasBots(int numBots){
+
+void muestraCartasBots(int numBots, Bot *arrayBots){
 
     int i=0;
     int ii=0;
@@ -110,7 +110,7 @@ int comprobarCartasSegunCaracter(Bot b, int ultimaCarta){
 
 }
 
-void turnoBots(int manoMasAlta, Baralles *c){
+void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
 
     int i;
     int ii;
@@ -178,10 +178,10 @@ void turnoBots(int manoMasAlta, Baralles *c){
         }
     }
 
-    muestraCartasBots(returnNumBots());
+    muestraCartasBots(returnNumBots(), arrayBots);
 }
 
-void compruebaBotGanador(int resultadoCrupier) {
+void compruebaBotGanador(int resultadoCrupier, Bot *arrayBots) {
     int i = 0;
     if (resultadoCrupier <= 21) {
         for (i = 0; i < returnNumBots(); i++) {
@@ -215,7 +215,7 @@ void compruebaBotGanador(int resultadoCrupier) {
     }
 }
 
-void ficherobot(){
+void ficherobot(Bot *arrayBots){
 
     Bot b;
     char nombre[50];
@@ -234,7 +234,7 @@ void ficherobot(){
         printf("ERROR.");
     }else{
         fscanf(fi, "%i", &numeroBots);
-        arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
+        //arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
         fscanf(fi, "%c", &aux[0]);
 
         for (i =0; i<=numeroBots; i++){
@@ -269,7 +269,7 @@ void ficherobot(){
 
 }
 
-void estadisticasBot(){
+void estadisticasBot(Bot *arrayBots){
     int i=0;
     for(i=0;i<returnNumBots();i++){
         printf("\nEl bot %s tiene %i partidas ganadas (%.2f %%), %i empates (%.2f %%) y %i derrotas (%.2f %%) y le quedan %i fichas",

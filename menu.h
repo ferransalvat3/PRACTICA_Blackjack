@@ -7,9 +7,10 @@
 
 
 #include "jugador.h"
+#include "bot.h"
 
-int menuPrincipal(int opcion);
+int menuPrincipal(int opcion, Bot *arrayBots);
 //int menuJugar(int opcion);
-int menuEstadistica(int opcion, Jugador j);
+int menuEstadistica(int opcion, Jugador j, Bot *arrayBots);
 
 #endif //BLACKJACK_MENU_H

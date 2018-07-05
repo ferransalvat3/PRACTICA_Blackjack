@@ -24,10 +24,10 @@ typedef struct{
 int retornaCartaMaxima(int idBot, Bot b);
 int retornaApuesta(Bot b);
 int pedirCartasSegunCaracter(int manoMasAlta, Bot b);
-void turnoBots(int manoMasAlta, Baralles *c);
-void compruebaBotGanador(int resultadoCrupier);
-void ficherobot();
-void estadisticasBot();
+void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots);
+void compruebaBotGanador(int resultadoCrupier, Bot *arrayBots);
+void ficherobot(Bot *arrayBots);
+void estadisticasBot(Bot *arrayBots);
 int returnNumBots();
 
 

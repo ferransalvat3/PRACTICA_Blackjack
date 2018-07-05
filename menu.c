@@ -6,7 +6,7 @@
 
 
 
-int  menuPrincipal(int opcion) {
+int  menuPrincipal(int opcion, Bot *arrayBots) {
 
     Baralles c;
     Jugador j;
@@ -47,14 +47,14 @@ int  menuPrincipal(int opcion) {
 
 
                     case 2:
-                        ficherobot();
+                        ficherobot(arrayBots);
                         j=ficherojugador(j);
 
 
                             while (1) {
                                 c = barallaCrea(numbaralles);
-                                partida(c, j);
-                                menuPrincipal(opcion);
+                                partida(c, j, arrayBots);
+                                menuPrincipal(opcion, arrayBots);
                                 break;
                             }
 
@@ -62,7 +62,7 @@ int  menuPrincipal(int opcion) {
 
 
                     case 3:
-                        menuEstadistica(opcion,j);
+                        menuEstadistica(opcion,j, arrayBots);
                         break;
 
                     case 4:
@@ -79,7 +79,7 @@ int  menuPrincipal(int opcion) {
 
 
 
-int menuEstadistica(int opcion, Jugador j){
+int menuEstadistica(int opcion, Jugador j, Bot *arrayBots){
 
 
     while(opcion < 4)
@@ -102,13 +102,13 @@ int menuEstadistica(int opcion, Jugador j){
                     estadisticasJugador(&j);
                     break;
                 case 2:
-                    estadisticasBot();
+                    estadisticasBot(arrayBots);
                     break;
                 case 3:
                     printf("No hemos podido implementar esta funcion..\n");
                     break;
                 case 4:
-                    menuPrincipal(opcion);
+                    menuPrincipal(opcion, arrayBots);
                     break;
 
             }

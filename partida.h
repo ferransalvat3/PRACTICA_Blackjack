@@ -6,8 +6,9 @@
 #define BLACKJACK_PARTIDA_H
 
 #include "jugador.h"
+#include "bot.h"
 
-void partida(Baralles c, Jugador j);
+void partida(Baralles c, Jugador j, Bot *arrayBots);
 
 
 #endif //BLACKJACK_PARTIDA_H
