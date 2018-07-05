@@ -30,7 +30,7 @@ Jugador ficherojugador(Jugador j){
     char aux[5];
     int n;
     int i;
-    int totalpartidas = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
+    int totalpartidas ;
     //Jugador j;
 
     fi = fopen("jugador.txt","rw");
@@ -61,20 +61,13 @@ Jugador ficherojugador(Jugador j){
             fprintf(fi, "manos_perdidas: %i", j.manos_perdidas);
             fprintf(fi, "manos_empatadas: %i", j.manos_empatadas);
 
+            totalpartidas = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
+
             for(i=0; i<totalpartidas; i++){
                 fprintf(fi, "fichas_partida_%i", j.fichas);
             }
 
         }
-
-    /*
-        printf("\nNombre:%s\n", nombre);
-        printf("Fichas:%d\n", numfichas);
-        printf("Manos_ganadas: %d\n", numganadas);
-        printf("Manos_perdidas: %d\n", numperdidas);
-        printf("Manos_empatadas: %d\n", numempatadas);
-
-    */
         fclose(fi);
 
     }

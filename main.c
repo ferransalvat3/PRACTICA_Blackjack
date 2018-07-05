@@ -1,7 +1,7 @@
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "menu.h"
-#include "bot.h"
+
 
 
 void main() {
