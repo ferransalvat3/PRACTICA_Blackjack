@@ -10,6 +10,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots) {
 
     Baralles c;
     Jugador j;
+    Crupier crupier;
 
     int numbaralles = 0;
 
@@ -49,11 +50,11 @@ int  menuPrincipal(int opcion, Bot *arrayBots) {
                     case 2:
                         ficherobot(arrayBots);
                         j=ficherojugador(j);
-
+                        crupier=init0();
 
                             while (1) {
                                 c = barallaCrea(numbaralles);
-                                partida(c, j, arrayBots);
+                                partida(c, j, arrayBots, crupier);
                                 menuPrincipal(opcion, arrayBots);
                                 break;
                             }

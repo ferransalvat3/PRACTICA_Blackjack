@@ -9,6 +9,7 @@
 #include "partida.h"
 #include "bot.h"
 #include "comprobaciones.h"
+#include "crupier.h"
 
 
 void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
@@ -31,7 +32,7 @@ void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
 
 }
 
-void partida(Baralles c, Jugador j, Bot *arrayBots){
+void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     int posicionmano=2;
     int mano [10];
     int resultado=0;
@@ -160,6 +161,10 @@ void partida(Baralles c, Jugador j, Bot *arrayBots){
         } while (juegoCrupier == 1);
     }
     printf("El crupier no pide mas\n");
+
+    incrementaResultadoCrupier(resultadoCroupier, crupier);
+
+
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {

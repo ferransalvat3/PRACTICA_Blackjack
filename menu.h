@@ -8,6 +8,7 @@
 
 #include "jugador.h"
 #include "bot.h"
+#include "crupier.h"
 
 int menuPrincipal(int opcion, Bot *arrayBots);
 int menuEstadistica(int opcion, Jugador j, Bot *arrayBots);
