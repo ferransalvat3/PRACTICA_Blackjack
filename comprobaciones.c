@@ -1,7 +1,6 @@
 //
 // Created by smoreno on 02/05/2018.
 //
-#include "bot.h"
 
 int teHasPasado(int valor){
     if (valor>21){

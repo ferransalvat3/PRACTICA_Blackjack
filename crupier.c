@@ -61,4 +61,8 @@ void incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
     }
 }
 
+void estadisticasCrupier(Crupier *crupier){
+
+}
+
 

@@ -31,7 +31,7 @@ Jugador ficherojugador(Jugador j){
     int n;
     int i;
     int totalpartidas ;
-    //Jugador j;
+    
 
     fi = fopen("jugador.txt","rw");
     if (fi==NULL){

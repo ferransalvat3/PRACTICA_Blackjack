@@ -18,19 +18,14 @@ Baralles barallaCrea(int numbaralles){
 
 
             c.numCartes = numbaralles * 52;
-            //printf("\n----%d\n", c.numCartes);
             barallaOrd = (int *) malloc(sizeof(int) * c.numCartes);
-
             for (i = 0; i < c.numCartes; i++) {
                 barallaOrd[i] = baralla[i % 13];
-                //printf("%d-", barallaOrd[i]);
             }
 
             srand(time(NULL));
             for (i = 0; i < c.numCartes; i++) {
                 barallaRand = rand() % (c.numCartes);
-                //barallaRand = barallaOrd[i];
-                //printf("--%d" ,barallaOrd[i]);
                 PILA_push(&c.p, barallaOrd[barallaRand]);
             }
 
