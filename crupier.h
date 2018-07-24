@@ -20,6 +20,7 @@ int retornaVeces19(Crupier c);
 int retornaVeces20(Crupier c);
 int retornaVeces21(Crupier c);
 int retornaVecesMayor21(Crupier c);
+void estadisticasCrupier(Crupier crupier);
 Crupier init0();
 void incrementaResultadoCrupier(int resultadoCrupier, Crupier c);
 

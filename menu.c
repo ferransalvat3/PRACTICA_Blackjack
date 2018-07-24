@@ -1,6 +1,5 @@
-#include "menu.h"
-#include "bot.h"
-#include "jugador.h"
+#include "menu.h"1
+
 #include "partida.h"
 #include <stdio.h>
 
@@ -63,7 +62,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots) {
 
 
                     case 3:
-                        menuEstadistica(opcion,j, arrayBots);
+                        menuEstadistica(opcion,j, arrayBots, crupier);
                         break;
 
                     case 4:
@@ -80,7 +79,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots) {
 
 
 
-int menuEstadistica(int opcion, Jugador j, Bot *arrayBots){
+int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier){
 
 
     while(opcion < 4)
@@ -106,6 +105,7 @@ int menuEstadistica(int opcion, Jugador j, Bot *arrayBots){
                     estadisticasBot(arrayBots);
                     break;
                 case 3:
+                    estadisticasCrupier(crupier);
                     printf("No hemos podido implementar esta funcion..\n");
                     break;
                 case 4:

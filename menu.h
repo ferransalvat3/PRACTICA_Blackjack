@@ -11,6 +11,6 @@
 #include "crupier.h"
 
 int menuPrincipal(int opcion, Bot *arrayBots);
-int menuEstadistica(int opcion, Jugador j, Bot *arrayBots);
+int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier);
 
 #endif //BLACKJACK_MENU_H

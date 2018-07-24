@@ -3,6 +3,7 @@
 //
 
 #include "crupier.h"
+#include <stdio.h>
 
 Crupier init0(){
     Crupier crupier;
@@ -18,24 +19,7 @@ Crupier init0(){
     return crupier;
 }
 
-int retornaVeces17(Crupier c){
-    return c.veces17;
-}
-int retornaVeces18(Crupier c){
-    return c.veces18;
-}
-int retornaVeces19(Crupier c){
-    return c.veces19;
-}
-int retornaVeces20(Crupier c){
-    return c.veces20;
-}
-int retornaVeces21(Crupier c){
-    return c.veces21;
-}
-int retornaVecesMayor21(Crupier c){
-    return c.vecesMayor21;
-}
+
 
 void incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
     switch (resultadoCrupier){
@@ -61,7 +45,16 @@ void incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
     }
 }
 
-void estadisticasCrupier(Crupier *crupier){
+void estadisticasCrupier(Crupier crupier){
+
+
+    printf("igual 17:%d\n", crupier.veces17);
+    printf("igual 18:%d\n", crupier.veces18);
+    printf("igual 19:%d\n", crupier.veces19);
+    printf("igual 20:%d\n", crupier.veces20);
+    printf("igual 21:%d\n", crupier.veces21);
+    printf("mayor 21:%d\n", crupier.vecesMayor21);
+
 
 }
 
