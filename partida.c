@@ -65,7 +65,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     resultado = resultado + mano[1];
 
     printf("\nTe quedan: %d fichas\n", retornaFichasJugador(j));
-    printf("En la mano tienes un: %i y un %i\n", mano[0], mano[1]);
+    salidaJugador(mano);
 
     turnoBots(manoMasAlta, &c, arrayBots);
 
@@ -92,9 +92,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
                 posicionmano++;
                 mano[posicionmano - 1] = dameCarta(&c);
                 resultado = resultado + mano[posicionmano - 1];
-                for (i = 0; i < posicionmano; i++) {
-                    printf("En la mano tienes:%i \n", mano[i]);
-                }
+                salidaJugador(mano);
                 printf("Tienes un valor de %i\n", resultado);
                 if (compruebaBlackJack(resultado) == 1) {
                     printf("ENHORABUENA! TIENES BLACKJACK!\n");
@@ -117,19 +115,13 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     posicionmano=2;
     if (juegoCrupier!=0) {
         printf("Turno del crupier\n");
-        for (i = 0; i < posicionmano; i++) {
-            printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
-        }
         do {
             if (juegoCrupier == 1) {
                 if (resultadoCroupier < 17) {
                     posicionmano++;
                     manocroupier[posicionmano - 1] = dameCarta(&c);
                     resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
-                    printf("El crupier pide carta\n");
-                    for (i = 0; i < posicionmano; i++) {
-                        printf("El crupier en la mano tiene:%i\n", manocroupier[i]);
-                    }
+                    salidaCrupier(manocroupier);
                     if (teHasPasado(resultadoCroupier) == 1) {
                         if (teHasPasado(resultado)==0){
                             printf("El croupier se ha pasado, has ganado\n");
@@ -174,6 +166,26 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
 
     compruebaBotGanador(resultadoCroupier, arrayBots);
 
+}
+
+void salidaJugador(int mano[10]){
+    int i=0;
+    printf("\nMano del jugador");
+    for (i = 0; i < 10; i++) {
+        if(mano[i]!=0) {
+            printf("[%i]", mano[i]);
+        }
+    }
+}
+
+void salidaCrupier(int manoCrupier[10]){
+    int i=0;
+    printf("\nMano del crupier");
+    for (i = 0; i < 10; i++) {
+        if(manoCrupier[i]!=0) {
+            printf("[%i]", manoCrupier[i]);
+        }
+    }
 }
 
 
