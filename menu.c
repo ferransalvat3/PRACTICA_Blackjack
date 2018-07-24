@@ -11,6 +11,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
     Jugador j;
     //Crupier crupier;
 
+
     int numbaralles = 0;
 
 
