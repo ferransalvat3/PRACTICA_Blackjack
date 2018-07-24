@@ -1,6 +1,4 @@
-//
-// Created by smoreno on 24/05/2018.
-//
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,6 +28,25 @@ void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
         printf("Tienes %i manos empatadas\n", j.manos_empatadas);
     }
 
+}
+void salidaJugador(int mano[10]){
+    int i=0;
+    printf("\nMano del jugador");
+    for (i = 0; i < 10; i++) {
+        if(mano[i]!=0) {
+            printf("[%i]", mano[i]);
+        }
+    }
+}
+
+void salidaCrupier(int manoCrupier[10]){
+    int i=0;
+    printf("\nMano del crupier");
+    for (i = 0; i < 10; i++) {
+        if(manoCrupier[i]!=0) {
+            printf("[%i]", manoCrupier[i]);
+        }
+    }
 }
 
 void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
@@ -168,25 +185,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
 
 }
 
-void salidaJugador(int mano[10]){
-    int i=0;
-    printf("\nMano del jugador");
-    for (i = 0; i < 10; i++) {
-        if(mano[i]!=0) {
-            printf("[%i]", mano[i]);
-        }
-    }
-}
 
-void salidaCrupier(int manoCrupier[10]){
-    int i=0;
-    printf("\nMano del crupier");
-    for (i = 0; i < 10; i++) {
-        if(manoCrupier[i]!=0) {
-            printf("[%i]", manoCrupier[i]);
-        }
-    }
-}
 
 
 

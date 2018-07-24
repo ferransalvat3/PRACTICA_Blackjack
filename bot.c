@@ -1,13 +1,9 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include "bot.h"
-#include "comprobaciones.h"
 #include "mesa.h"
-
-
-
+#include "comprobaciones.h"
 
 
 void muestraCartasBots(int numBots, Bot *arrayBots){
@@ -138,9 +134,6 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
                 arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + arrayBots[i].manobot[ii];
             }
 
-            //muestraCartasBots(returnNumBots(),arrayBots);
-            //printf(" Resultado bot: %i", arrayBots[i].puntuacionCartasBot);
-
         }
 
     }
@@ -157,8 +150,6 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
                     ii++;
                     manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
                     if (comprobarCartasSegunCaracter(arrayBots[i], ultimaCarta) == 0) {
-                        //printf("\nEl bot %s pasa de turno",  arrayBots[i].nombre);
-                        //printf("\nEl bot %s tiene una puntuacion de %i",  arrayBots[i].nombre, arrayBots[i].puntuacionCartasBot);
                         i++;
                         turnoBot++;
                     }
@@ -167,8 +158,6 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
                     if (teHasPasado(arrayBots[i].puntuacionCartasBot) == 1) {
                         arrayBots[i].puedeGanar = 1;
                     }
-                    //printf("\nEl bot %s pasa de turno",  arrayBots[i].nombre);
-                   // printf("\nEl bot %s tiene una puntuacion de %i",  arrayBots[i].nombre, arrayBots[i].puntuacionCartasBot);
                     i++;
                     turnoBot++;
                 }
@@ -236,7 +225,6 @@ void ficherobot(Bot *arrayBots){
         printf("ERROR.");
     }else{
         fscanf(fi, "%i", &numeroBots);
-        //arrayBots= (Bot*)malloc(sizeof(Bot)*numeroBots);
         fscanf(fi, "%c", &aux[0]);
 
         for (i =0; i<=numeroBots; i++){

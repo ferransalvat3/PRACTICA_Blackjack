@@ -1,6 +1,4 @@
-//
-// Created by smoreno on 05/07/2018.
-//
+
 
 #include "crupier.h"
 #include <stdio.h>

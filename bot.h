@@ -18,7 +18,6 @@ typedef struct{
     int noApuesta;
 }Bot;
 
-int retornaCartaMaxima(int idBot, Bot b);
 int retornaApuesta(Bot b);
 int pedirCartasSegunCaracter(int manoMasAlta, Bot b);
 void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots);

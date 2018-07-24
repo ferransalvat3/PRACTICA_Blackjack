@@ -52,16 +52,7 @@ int PILA_vacia(Pila p) {
     return p == NULL;
 }
 
-/*void PILA_destruye(Pila *p) {
-    Nodo *aux;
-    while (*p != NULL) {
-        aux = *p;
-        *p = (*p)->sig;
-        free(aux);
-    }
 
-}
-*/
 
 
 

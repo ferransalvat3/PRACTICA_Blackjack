@@ -1,6 +1,4 @@
-//
-// Created by Ferran Salvat on 14/5/18.
-//
+
 
 #ifndef BLACKJACK_BARAJAS_H
 #define BLACKJACK_BARAJAS_H

@@ -1,6 +1,4 @@
-//
-// Created by smoreno on 05/07/2018.
-//
+
 
 #ifndef BLACKJACK_CRUPIER_H
 #define BLACKJACK_CRUPIER_H

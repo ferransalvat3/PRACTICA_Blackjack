@@ -1,6 +1,4 @@
-//
-// Created by Ferran Salvat on 2/5/18.
-//
+
 
 #ifndef BLACKJACK_PILACARTAS_H
 #define BLACKJACK_PILACARTAS_H

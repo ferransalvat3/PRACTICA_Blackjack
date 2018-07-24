@@ -1,6 +1,4 @@
-//
-// Created by smoreno on 24/05/2018.
-//
+
 
 #ifndef BLACKJACK_PARTIDA_H
 #define BLACKJACK_PARTIDA_H
