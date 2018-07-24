@@ -10,7 +10,7 @@
 #include "bot.h"
 #include "crupier.h"
 
-int menuPrincipal(int opcion, Bot *arrayBots);
+int menuPrincipal(int opcion, Bot *arrayBots, Crupier c);
 int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier);
 
 #endif //BLACKJACK_MENU_H

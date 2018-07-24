@@ -5,8 +5,7 @@
 #include "crupier.h"
 #include <stdio.h>
 
-Crupier init0(){
-    Crupier crupier;
+Crupier init0(Crupier crupier){
 
     crupier.veces17=0;
     crupier.veces18=0;
@@ -39,21 +38,19 @@ void incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
             c.veces21=c.veces21+1;
             break;
 
-    }
-    if(resultadoCrupier>21){
-        c.vecesMayor21=c.vecesMayor21+1;
+
     }
 }
 
 void estadisticasCrupier(Crupier crupier){
 
 
-    printf("igual 17:%d\n", crupier.veces17);
-    printf("igual 18:%d\n", crupier.veces18);
-    printf("igual 19:%d\n", crupier.veces19);
-    printf("igual 20:%d\n", crupier.veces20);
-    printf("igual 21:%d\n", crupier.veces21);
-    printf("mayor 21:%d\n", crupier.vecesMayor21);
+    printf("igual 17:%i\n", crupier.veces17);
+    printf("igual 18:%i\n", crupier.veces18);
+    printf("igual 19:%i\n", crupier.veces19);
+    printf("igual 20:%i\n", crupier.veces20);
+    printf("igual 21:%i\n", crupier.veces21);
+    printf("mayor 21:%i\n", crupier.vecesMayor21);
 
 
 }

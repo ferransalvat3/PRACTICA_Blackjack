@@ -7,7 +7,8 @@
 void main() {
     int opcion = 0;
     Bot *arrayBots= (Bot*)malloc(sizeof(Bot)*returnNumBots());
-    menuPrincipal(opcion, arrayBots);
+    Crupier c;
+    menuPrincipal(opcion, arrayBots,c);
 }
 
 

@@ -14,14 +14,8 @@ typedef struct {
     int vecesMayor21;
 }Crupier;
 
-int retornaVeces17(Crupier c);
-int retornaVeces18(Crupier c);
-int retornaVeces19(Crupier c);
-int retornaVeces20(Crupier c);
-int retornaVeces21(Crupier c);
-int retornaVecesMayor21(Crupier c);
 void estadisticasCrupier(Crupier crupier);
-Crupier init0();
+Crupier init0(Crupier crupier);
 void incrementaResultadoCrupier(int resultadoCrupier, Crupier c);
 
 #endif //BLACKJACK_CRUPIER_H
