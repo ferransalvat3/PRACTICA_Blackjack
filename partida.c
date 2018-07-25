@@ -7,7 +7,7 @@
 #include "partida.h"
 #include "bot.h"
 #include "comprobaciones.h"
-#include "crupier.h"
+
 
 
 void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
