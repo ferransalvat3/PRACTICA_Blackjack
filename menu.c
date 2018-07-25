@@ -1,4 +1,4 @@
-#include "menu.h"1
+#include "menu.h"
 
 #include "partida.h"
 #include <stdio.h>
@@ -9,6 +9,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
 
     Baralles c;
     Jugador j;
+
 
 
     int numbaralles = 0;
