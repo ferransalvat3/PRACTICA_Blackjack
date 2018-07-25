@@ -55,6 +55,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
                             while (1) {
                                 c = barallaCrea(numbaralles);
                                 partida(c, j, arrayBots, crupier);
+                                estadisticasCrupier(crupier);
                                 menuPrincipal(opcion, arrayBots,crupier);
                                 break;
                             }

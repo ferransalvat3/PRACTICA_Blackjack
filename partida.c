@@ -162,6 +162,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
                         break;
                     }
                     printf("El crupier tiene un valor de %i\n", resultadoCroupier);
+
                 } else{
                     juegoCrupier=0;
                 }
@@ -171,9 +172,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     }
     printf("El crupier no pide mas\n");
 
-    incrementaResultadoCrupier(resultadoCroupier, crupier);
-
-
+    crupier=incrementaResultadoCrupier(resultadoCroupier,crupier);
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {

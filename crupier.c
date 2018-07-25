@@ -18,7 +18,7 @@ Crupier init0(Crupier crupier){
 
 
 
-void incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
+Crupier incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
     switch (resultadoCrupier){
         case 17:
             c.veces17=c.veces17+1;
@@ -38,6 +38,7 @@ void incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
 
 
     }
+    return c;
 }
 
 void estadisticasCrupier(Crupier crupier){
