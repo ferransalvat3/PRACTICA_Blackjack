@@ -10,6 +10,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
     Baralles c;
     Jugador j;
     int numbaralles = 0;
+    Pila p;
 
 
     while(opcion <=3 )
@@ -49,6 +50,9 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
 
                             while (1) {
                                 c = barallaCrea(numbaralles);
+                                if(BARAJA_vacia(&c)){
+                                   c=barallaCrea(numbaralles);
+                                }
                                 partida(c, j, arrayBots, crupier);
                                 menuPrincipal(opcion, arrayBots,crupier);
                                 break;

@@ -51,4 +51,7 @@ int dameCarta(Baralles *c){
 
 }
 
+int BARAJA_vacia(Baralles *c) {
+    return c == NULL;
+}
 

@@ -13,5 +13,6 @@ typedef struct{
 
 Baralles barallaCrea(int numbaralles);
 int dameCarta(Baralles *b);
+int BARAJA_vacia(Baralles *c);
 
 #endif //BLACKJACK_BARAJAS_H
