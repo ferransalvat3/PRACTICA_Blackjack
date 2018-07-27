@@ -39,6 +39,7 @@ Crupier incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
 
     }
     return c;
+
 }
 
 void estadisticasCrupier(Crupier crupier){
