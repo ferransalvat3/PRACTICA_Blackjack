@@ -56,16 +56,6 @@ Jugador ficherojugador(Jugador j){
             j.manos_perdidas=numperdidas;
             j.manos_empatadas=numempatadas;
 
-            fprintf(fi, "manos_ganadas: %i", j.manos_ganadas);
-            fprintf(fi, "manos_perdidas: %i", j.manos_perdidas);
-            fprintf(fi, "manos_empatadas: %i", j.manos_empatadas);
-
-            totalpartidas = j.manos_ganadas+j.manos_perdidas+j.manos_empatadas;
-
-            for(i=0; i<totalpartidas; i++){
-                fprintf(fi, "fichas_partida_%i", j.fichas);
-            }
-
         }
         fclose(fi);
 
@@ -77,24 +67,52 @@ Jugador ficherojugador(Jugador j){
 }
 
 
-void estadisticasJugador(Jugador *j){
+void estadisticasJugador(Jugador *j) {
 
-    int totalpartides =  0;
-    totalpartides = j->manos_ganadas+j->manos_perdidas+j->manos_empatadas;
+    int totalpartides = 0;
+    //totalpartides = j->manos_ganadas + j->manos_perdidas + j->manos_empatadas;
     float ganadas = 0.0;
     float empatadas = 0.0;
     float perdidas = 0.0;
+    FILE *fichero;
+    char aux[5];
 
-    ganadas = (float)j->manos_ganadas/(totalpartides*100);
-    empatadas =(float)j->manos_empatadas/(totalpartides*100);
-    perdidas = (float)j->manos_perdidas/(totalpartides*100);
+    fichero = fopen("estadisticaJugador.txt", "r");
+    if (fichero == NULL) {
+        printf("ERROR.");
+    } else {
 
-    printf("Nombre: %s\n", j->nombre);
-    printf("Fichas: %d fichas\n", j->fichas);
+        fscanf(fichero, "%i", &j->manos_ganadas);
+        fscanf(fichero, "%c", &aux[0]);
+        fscanf(fichero, "%i", &j->manos_empatadas);
+        fscanf(fichero, "%c", &aux[0]);
+        fscanf(fichero, "%i", &j->manos_perdidas);
+
+        totalpartides = j->manos_ganadas + j->manos_perdidas + j->manos_empatadas;
+        ganadas = ((float)j->manos_ganadas / totalpartides) * 100;
+        empatadas = ((float)j->manos_empatadas / totalpartides) * 100;
+        perdidas = ((float)j->manos_perdidas / totalpartides )* 100;
+
+    }
     printf("Partidas ganadas: %d (%.1f%%)\n", j->manos_ganadas, ganadas);
     printf("Partidas empatadas: %d (%.1f%%)\n", j->manos_empatadas, empatadas);
     printf("Partidas perdidas: %d (%.1f%%)\n\n", j->manos_perdidas, perdidas);
 
+    fclose(fichero);
+
 }
 
+void escribirFichero (Jugador j){
+
+    FILE *fic;
+    fic = fopen("estadisticaJugador.txt","w");
+    if (fic==NULL){
+        printf("ERROR.");
+    }else {
+        fprintf(fic,"\n%i", j.manos_ganadas);
+        fprintf(fic,"\n%i", j.manos_empatadas);
+        fprintf(fic,"\n%i", j.manos_perdidas);
+    }
+    fclose(fic);
+}
 

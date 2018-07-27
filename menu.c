@@ -101,7 +101,7 @@ int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier){
                     estadisticasBot(arrayBots);
                     break;
                 case 3:
-                    estadisticasCrupier(crupier);
+                    estadisticasCrupier(&crupier);
                     break;
                 case 4:
                     menuPrincipal(opcion, arrayBots,crupier);

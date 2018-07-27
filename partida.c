@@ -176,9 +176,11 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
         } while (juegoCrupier == 1);
     }
 
+
     printf("\nEl crupier no pide mas\n");
 
     incrementaResultadoCrupier(resultadoCroupier, crupier);
+    ficheroCrupier (crupier);
 
 
 
@@ -189,6 +191,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     }
 
     compruebaBotGanador(resultadoCroupier, arrayBots);
+    escribirFichero (j);
 
 }
 

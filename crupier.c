@@ -42,17 +42,61 @@ Crupier incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
 
 }
 
-void estadisticasCrupier(Crupier crupier){
+void ficheroCrupier (Crupier crupier) {
 
+    FILE *fiche;
+    fiche = fopen("estadisticaCrupier.txt", "w");
+    if (fiche == NULL) {
+        printf("ERROR.");
+    } else {
+        while (!feof(fiche)) {
+            fprintf(fiche, "%i", crupier.veces17);
+            fprintf(fiche, "\n%i", crupier.veces18);
+            fprintf(fiche, "\n%i", crupier.veces19);
+            fprintf(fiche, "\n%i", crupier.veces20);
+            fprintf(fiche, "\n%i", crupier.veces21);
+            fprintf(fiche, "\n%i", crupier.vecesMayor21);
 
-    printf("igual 17:%i\n", crupier.veces17);
-    printf("igual 18:%i\n", crupier.veces18);
-    printf("igual 19:%i\n", crupier.veces19);
-    printf("igual 20:%i\n", crupier.veces20);
-    printf("igual 21:%i\n", crupier.veces21);
-    printf("mayor 21:%i\n", crupier.vecesMayor21);
+        }
+        fclose(fiche);
 
-
+    }
 }
+
+
+    void estadisticasCrupier(Crupier *crupier) {
+
+        FILE *fich;
+        char aux[10];
+
+        fich = fopen("estadisticaCrupier.txt", "r");
+        if (fich == NULL) {
+            printf("ERROR.");
+        } else {
+
+            fscanf(fich, "%i", &crupier->veces17);
+            fscanf(fich, "%c", &aux[0]);
+            fscanf(fich, "%i", &crupier->veces18);
+            fscanf(fich, "%c", &aux[0]);
+            fscanf(fich, "%i", &crupier->veces19);
+            fscanf(fich, "%c", &aux[0]);
+            fscanf(fich, "%i", &crupier->veces20);
+            fscanf(fich, "%c", &aux[0]);
+            fscanf(fich, "%i", &crupier->veces21);
+            fscanf(fich, "%c", &aux[0]);
+            fscanf(fich, "%i", &crupier->vecesMayor21);
+
+        }
+
+        printf("igual 17:%i\n", crupier->veces17);
+        printf("igual 18:%i\n", crupier->veces18);
+        printf("igual 19:%i\n", crupier->veces19);
+        printf("igual 20:%i\n", crupier->veces20);
+        printf("igual 21:%i\n", crupier->veces21);
+        printf("mayor 21:%i\n", crupier->vecesMayor21);
+
+        fclose(fich);
+
+    }
 
 

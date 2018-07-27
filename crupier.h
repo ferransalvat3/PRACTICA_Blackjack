@@ -12,8 +12,9 @@ typedef struct {
     int vecesMayor21;
 }Crupier;
 
-void estadisticasCrupier(Crupier crupier);
 Crupier init0(Crupier crupier);
 Crupier incrementaResultadoCrupier(int resultadoCrupier, Crupier c);
+void estadisticasCrupier(Crupier *crupier);
+void ficheroCrupier (Crupier crupier);
 
 #endif //BLACKJACK_CRUPIER_H
