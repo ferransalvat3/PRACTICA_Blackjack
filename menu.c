@@ -20,9 +20,6 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
             printf("3- Mostrar estadisticas.\n");
             printf("4- Salir.\n");
 
-
-            printf("me cago en lputa");
-
             printf("Opcion: _\n");
             scanf("%d", &opcion);
 

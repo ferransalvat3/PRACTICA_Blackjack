@@ -103,6 +103,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     if (compruebaBlackJack(resultadoCroupier) == 1) {
         juegoCrupier=0;
         printf("El crupier ha hech Blackjack a la primera\n");
+        salidaCrupier(manocroupier);
     }
     if (partidaEnJuego!=0) {
         do {
@@ -153,6 +154,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
                         juegoCrupier = 0;
                     }
                     if (compruebaBlackJack(resultadoCroupier) == 1) {
+                        salidaCrupier(manocroupier);
                         printf("\nBlackjack del crupier\n");
                         if(compruebaBlackJack(resultado)==0){
                             printf("\nEl crupier te ha ganado");
