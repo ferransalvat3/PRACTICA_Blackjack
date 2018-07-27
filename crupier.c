@@ -35,9 +35,11 @@ Crupier incrementaResultadoCrupier(int resultadoCrupier, Crupier c){
         case 21:
             c.veces21=c.veces21+1;
             break;
-
-
     }
+    if(resultadoCrupier>21){
+        c.vecesMayor21=c.vecesMayor21+1;
+    }
+    ficheroCrupier(c);
     return c;
 
 }
@@ -49,19 +51,19 @@ void ficheroCrupier (Crupier crupier) {
     if (fiche == NULL) {
         printf("ERROR.");
     } else {
-        while (!feof(fiche)) {
-            fprintf(fiche, "%i", crupier.veces17);
-            fprintf(fiche, "\n%i", crupier.veces18);
-            fprintf(fiche, "\n%i", crupier.veces19);
-            fprintf(fiche, "\n%i", crupier.veces20);
-            fprintf(fiche, "\n%i", crupier.veces21);
-            fprintf(fiche, "\n%i", crupier.vecesMayor21);
-
-        }
-        fclose(fiche);
+        fprintf(fiche, "%i", crupier.veces17);
+        fprintf(fiche, "\n%i", crupier.veces18);
+        fprintf(fiche, "\n%i", crupier.veces19);
+        fprintf(fiche, "\n%i", crupier.veces20);
+        fprintf(fiche, "\n%i", crupier.veces21);
+        fprintf(fiche, "\n%i", crupier.vecesMayor21);
 
     }
+
+    fclose(fiche);
+
 }
+
 
 
     void estadisticasCrupier(Crupier *crupier) {

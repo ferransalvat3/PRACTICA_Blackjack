@@ -180,9 +180,6 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
     printf("\nEl crupier no pide mas\n");
 
     incrementaResultadoCrupier(resultadoCroupier, crupier);
-    ficheroCrupier (crupier);
-
-
 
     if(noSePidenMasCartas ==0) {
         if (teHasPasado(resultado) == 0 && compruebaBlackJack(resultado) == 0) {
