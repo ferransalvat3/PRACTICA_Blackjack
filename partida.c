@@ -132,7 +132,6 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
         } while (partidaEnJuego != 0);
     }
 
-
     posicionmano=2;
     if (juegoCrupier!=0) {
         printf("TURNO DEL CRUPIER:\n");
