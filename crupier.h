@@ -14,6 +14,6 @@ typedef struct {
 
 void estadisticasCrupier(Crupier crupier);
 Crupier init0(Crupier crupier);
-void incrementaResultadoCrupier(int resultadoCrupier, Crupier c);
+Crupier incrementaResultadoCrupier(int resultadoCrupier, Crupier c);
 
 #endif //BLACKJACK_CRUPIER_H
