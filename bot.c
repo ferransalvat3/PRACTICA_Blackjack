@@ -12,12 +12,13 @@ void muestraCartasBots(int numBots, Bot *arrayBots){
     int ii=0;
 
     for(i=0; i<numBots;i++){
-        printf("\nEl bot %s tiene en la mano, %13i fichas apostadas \n",arrayBots[i].nombre, arrayBots[i].apuestaBot);
+        printf("\nBot %s: %13i fichas apostadas \n",arrayBots[i].nombre, arrayBots[i].apuestaBot);
         for(ii=0;ii<10;ii++){
             if(arrayBots[i].manobot[ii]>0 && arrayBots[i].manobot[ii]<22)
             printf("[%i]", arrayBots[i].manobot[ii]);
         }
-        printf("\tpuntuacion de las cartas: %i", arrayBots[i].puntuacionCartasBot);
+        printf("\tPuntuacion de las cartas: %i", arrayBots[i].puntuacionCartasBot);
+        printf("\n---------------------------------------");
     }
 }
 

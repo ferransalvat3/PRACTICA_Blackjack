@@ -35,8 +35,10 @@ void salidaJugador(int mano[10]){
     for (i = 0; i < 10; i++) {
         if(mano[i]!=0) {
             printf("[%i]", mano[i]);
+
         }
     }
+    printf("\n----------------------------");
 }
 
 void salidaCrupier(int manoCrupier[10]){
@@ -47,6 +49,7 @@ void salidaCrupier(int manoCrupier[10]){
             printf("[%i]", manoCrupier[i]);
         }
     }
+    printf("\n----------------------------");
 }
 
 void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
@@ -110,7 +113,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
                 mano[posicionmano - 1] = dameCarta(&c);
                 resultado = resultado + mano[posicionmano - 1];
                 salidaJugador(mano);
-                printf("Tienes un valor de %i\n", resultado);
+                printf("\nTienes un valor de %i\n", resultado);
                 if (compruebaBlackJack(resultado) == 1) {
                     printf("ENHORABUENA! TIENES BLACKJACK!\n");
                     noSePidenMasCartas = 1;
@@ -131,7 +134,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
 
     posicionmano=2;
     if (juegoCrupier!=0) {
-        printf("Turno del crupier\n");
+        printf("TURNO DEL CRUPIER:\n");
         do {
             if (juegoCrupier == 1) {
                 if (resultadoCroupier < 17) {
@@ -141,27 +144,28 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
                     salidaCrupier(manocroupier);
                     if (teHasPasado(resultadoCroupier) == 1) {
                         if (teHasPasado(resultado)==0){
-                            printf("El croupier se ha pasado, has ganado\n");
+                            salidaCrupier(manocroupier);
+                            printf("\nEl croupier se ha pasado, has ganado\n");
                             j.manos_ganadas = j.manos_ganadas + 1;
-                            printf("Tienes %i manos ganadas\n", j.manos_ganadas);
+                            printf("\nTienes %i manos ganadas\n", j.manos_ganadas);
                         }
                         noSePidenMasCartas = 1;
                         juegoCrupier = 0;
                     }
                     if (compruebaBlackJack(resultadoCroupier) == 1) {
-                        printf("Blackjack del crupier\n");
+                        printf("\nBlackjack del crupier\n");
                         if(compruebaBlackJack(resultado)==0){
-                            printf("El crupier te ha ganado");
+                            printf("\nEl crupier te ha ganado");
                             j.manos_perdidas= j.manos_perdidas+1;
                         } else if(compruebaBlackJack(resultado)==1){
-                            printf("El crupier ha hecho blackjack igual que tu, empatais\n");
+                            printf("\nEl crupier ha hecho blackjack igual que tu, empatais\n");
                             j.manos_empatadas= j.manos_empatadas;
                         }
                         comprobaciones(j, resultado,resultadoCroupier);
                         noSePidenMasCartas = 1;
                         break;
                     }
-                    printf("El crupier tiene un valor de %i\n", resultadoCroupier);
+                    printf("\nEl crupier tiene un valor de %i\n", resultadoCroupier);
                 } else{
                     juegoCrupier=0;
                 }
@@ -169,7 +173,8 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
 
         } while (juegoCrupier == 1);
     }
-    printf("El crupier no pide mas\n");
+
+    printf("\nEl crupier no pide mas\n");
 
     incrementaResultadoCrupier(resultadoCroupier, crupier);
 

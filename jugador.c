@@ -82,12 +82,19 @@ void estadisticasJugador(Jugador *j){
 
     int totalpartides =  0;
     totalpartides = j->manos_ganadas+j->manos_perdidas+j->manos_empatadas;
+    float ganadas = 0.0;
+    float empatadas = 0.0;
+    float perdidas = 0.0;
+
+    ganadas = (float)j->manos_ganadas/(totalpartides*100);
+    empatadas =(float)j->manos_empatadas/(totalpartides*100);
+    perdidas = (float)j->manos_perdidas/(totalpartides*100);
 
     printf("Nombre: %s\n", j->nombre);
-    printf("Fichas: %d fch\n", j->fichas);
-    printf("Partidas ganadas: %d (%.1f%%)\n", j->manos_ganadas, (float)j->manos_ganadas/(totalpartides*100));
-    printf("Partidas empatadas: %d (%.1f%%)\n", j->manos_empatadas, (float)j->manos_empatadas/(totalpartides*100));
-    printf("Partidas perdidas: %d (%.1f%%)\n\n", j->manos_perdidas, (float)j->manos_perdidas/(totalpartides*100));
+    printf("Fichas: %d fichas\n", j->fichas);
+    printf("Partidas ganadas: %d (%.1f%%)\n", j->manos_ganadas, ganadas);
+    printf("Partidas empatadas: %d (%.1f%%)\n", j->manos_empatadas, empatadas);
+    printf("Partidas perdidas: %d (%.1f%%)\n\n", j->manos_perdidas, perdidas);
 
 }
 

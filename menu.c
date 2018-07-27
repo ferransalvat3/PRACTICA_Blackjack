@@ -9,10 +9,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
 
     Baralles c;
     Jugador j;
-
-
     int numbaralles = 0;
-
 
 
     while(opcion <=3 )
