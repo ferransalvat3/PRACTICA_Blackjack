@@ -12,6 +12,7 @@ Baralles barallaCrea(int numbaralles){
     int *barallaOrd;
 
     c.p = PILA_crea();
+
     int baralla[52] = {2,3,4,5,6,7,8,9,10,'J','Q','K','A'};
 
 
@@ -54,4 +55,5 @@ int dameCarta(Baralles *c){
 int BARAJA_vacia(Baralles *c) {
     return c == NULL;
 }
+
 

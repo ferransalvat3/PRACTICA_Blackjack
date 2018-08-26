@@ -33,7 +33,7 @@ void salidaJugador(int mano[10]){
     int i=0;
     printf("\nMano del jugador");
     for (i = 0; i < 10; i++) {
-        if(mano[i]!=0) {
+        if(mano[i]<21 && mano[i]>0) {
             printf("[%i]", mano[i]);
 
         }
@@ -50,6 +50,13 @@ void salidaCrupier(int manoCrupier[10]){
         }
     }
     printf("\n----------------------------");
+}
+
+void inicializaManoJugador(int mano[10]){
+    int i=0;
+    for(i=0;i<10;i++){
+        mano[i]=0;
+    }
 }
 
 void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
@@ -77,6 +84,8 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
         printf("No puedes apostar, no tienes tantas fichas, indica una nueva cantidad\n");
         scanf("%d", &apuestaJugador);
     }
+
+    inicializaManoJugador(&mano);
 
     j.fichas= j.fichas-apuestaJugador;
     mano[0]= dameCarta(&c);

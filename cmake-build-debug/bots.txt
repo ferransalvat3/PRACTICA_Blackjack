@@ -2,12 +2,12 @@
 An Tonio
 2322
 normal
-17
+15
 Moreno
 12000
 fuerte
-4
+16
 fe rran
 12345
 debil
-21
+12

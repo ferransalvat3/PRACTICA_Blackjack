@@ -63,14 +63,15 @@ int retornaApuesta(Bot b){
 }
 
 int pedirCartasSegunCaracter(int manoMasAlta, Bot b){
+
     if (strcmp(b.caracter, "normal") == 0){
-        if(b.puntuacionCartasBot<15){
+        if(b.puntuacionCartasBot<b.cartaMaxima){
             return 1;
         } else{
             return 0;
         }
     } else if (strcmp(b.caracter, "debil") == 0){
-        if(b.puntuacionCartasBot<12){
+        if(b.puntuacionCartasBot<b.cartaMaxima){
             return 1;
         } else{
             return 0;
@@ -78,14 +79,14 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b){
 
     } else if (strcmp(b.caracter, "fuerte") == 0){
         if(manoMasAlta ==0){
-            if(b.puntuacionCartasBot<16){
+            if(b.puntuacionCartasBot<b.cartaMaxima){
                 return 1;
             }
         } else{
-            if(b.puntuacionCartasBot<manoMasAlta){
-                return 1;
-            } else{
+            if(b.puntuacionCartasBot>=manoMasAlta){
                 return 0;
+            } else{
+                return 1;
             }
         }
 
@@ -100,12 +101,13 @@ int comprobarCartasSegunCaracter(Bot b, int ultimaCarta){
             return 0;
         }
     } else if (strcmp(b.caracter, "debil") == 0) {
-        if(ultimaCarta<2){
-            return 1;
-        } else{
+        if(b.puntuacionCartasBot>=b.cartaMaxima){
             return 0;
+        } else{
+            return 1;
         }
     }
+
 
 }
 
@@ -123,7 +125,6 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
             arrayBots[i].noApuesta=0;
             arrayBots[i].apuestaBot=retornaApuesta(arrayBots[i]);
             arrayBots[i].fichas= arrayBots[i].fichas-arrayBots[i].apuestaBot;
-            //printf("\nEl bot %s apuesta: %i", arrayBots[i].nombre, arrayBots[i].apuestaBot);
         }
     }
 
@@ -145,16 +146,16 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
         if(arrayBots[i].noApuesta==0) {
             if (turnoBot < returnNumBots()) {
                 ultimaCarta = dameCarta(c);
+                manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
                 if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i]) == 1) {
                     arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
                     arrayBots[i].manobot[ii] = ultimaCarta;
                     ii++;
-                    manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
+                    //manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
                     if (comprobarCartasSegunCaracter(arrayBots[i], ultimaCarta) == 0) {
                         i++;
                         turnoBot++;
                     }
-
                 } else {
                     if (teHasPasado(arrayBots[i].puntuacionCartasBot) == 1) {
                         arrayBots[i].puedeGanar = 1;
@@ -162,7 +163,6 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
                     i++;
                     turnoBot++;
                 }
-
             }
         } else{
             i++;
@@ -290,7 +290,6 @@ void estadisticasBot(Bot *arrayBots){
     }
 
 }
-
 
 int returnNumBots(){
 

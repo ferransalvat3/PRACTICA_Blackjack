@@ -5,9 +5,9 @@
 
 
 
-int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
+int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles c) {
 
-    Baralles c;
+    //Baralles c;
     Jugador j;
     int numbaralles = 0;
     Pila p;
@@ -39,7 +39,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
                         if (numbaralles>1 || numbaralles<4 ){
                             printf("La baralla se ha creado correctamente\n");
                         }
-                            barallaCrea(numbaralles);
+                            c=barallaCrea(numbaralles);
                         break;
 
 
@@ -49,12 +49,12 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
                         crupier=init0(crupier);
 
                             while (1) {
-                                c = barallaCrea(numbaralles);
-                                if(BARAJA_vacia(&c)){
-                                   c=barallaCrea(numbaralles);
-                                }
+//                                c = barallaCrea(numbaralles);
+//                                if(BARAJA_vacia(&c)){
+//                                   c=barallaCrea(numbaralles);
+//                                }
                                 partida(c, j, arrayBots, crupier);
-                                menuPrincipal(opcion, arrayBots,crupier);
+                                menuPrincipal(opcion, arrayBots,crupier, c);
                                 break;
                             }
 
@@ -62,7 +62,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
 
 
                     case 3:
-                        menuEstadistica(opcion,j, arrayBots, crupier);
+                        menuEstadistica(opcion,j, arrayBots, crupier,c);
                         break;
 
                     case 4:
@@ -79,7 +79,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier) {
 
 
 
-int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier){
+int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier, Baralles baralles){
 
 
     while(opcion < 4)
@@ -108,7 +108,7 @@ int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier){
                     estadisticasCrupier(&crupier);
                     break;
                 case 4:
-                    menuPrincipal(opcion, arrayBots,crupier);
+                    menuPrincipal(opcion, arrayBots,crupier, baralles);
                     break;
 
             }
@@ -118,5 +118,7 @@ int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier){
     return opcion;
 
 }
+
+
 
 
