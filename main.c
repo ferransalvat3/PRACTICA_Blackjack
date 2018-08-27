@@ -9,7 +9,7 @@ void main() {
     Bot *arrayBots= (Bot*)malloc(sizeof(Bot)*returnNumBots());
     Crupier c;
     Baralles baralles;
-    menuPrincipal(opcion, arrayBots, c, baralles);
+    menuPrincipal(opcion, arrayBots, c, &baralles);
 
 }
 
