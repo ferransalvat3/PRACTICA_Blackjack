@@ -2,11 +2,12 @@
 
 #include "partida.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 
-int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles *c) {
 
+int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles c) {
+
+    //Baralles c;
     Jugador j;
     int numbaralles = 0;
     Pila p;
@@ -38,7 +39,7 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles *c) {
                         if (numbaralles>1 || numbaralles<4 ){
                             printf("La baralla se ha creado correctamente\n");
                         }
-                            *c=barallaCrea(numbaralles);
+                            c=barallaCrea(numbaralles);
                         break;
 
 
@@ -47,21 +48,21 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles *c) {
                         j=ficherojugador(j);
                         crupier=init0(crupier);
 
-                            while (1) {
+                            //while (1) {
 //                                c = barallaCrea(numbaralles);
 //                                if(BARAJA_vacia(&c)){
 //                                   c=barallaCrea(numbaralles);
 //                                }
-                                partida(*c, j, arrayBots, crupier);
-                                menuPrincipal(opcion, arrayBots,crupier, &c);
-                                break;
-                            }
+                                partida(&c, j, arrayBots, crupier);
+                                //menuPrincipal(opcion, arrayBots,crupier, c);
+                                //break;
+                            //}
 
                         break;
 
 
                     case 3:
-                        menuEstadistica(opcion,j, arrayBots, crupier,*c);
+                        menuEstadistica(opcion,j, arrayBots, crupier,c);
                         break;
 
                     case 4:
@@ -107,7 +108,7 @@ int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier, Bara
                     estadisticasCrupier(&crupier);
                     break;
                 case 4:
-                    menuPrincipal(opcion, arrayBots,crupier, &baralles);
+                    menuPrincipal(opcion, arrayBots,crupier, baralles);
                     break;
 
             }

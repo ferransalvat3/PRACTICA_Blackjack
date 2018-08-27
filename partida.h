@@ -7,7 +7,7 @@
 #include "bot.h"
 #include "crupier.h"
 
-void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier);
+void partida(Baralles *c, Jugador j, Bot *arrayBots, Crupier crupier);
 
 
 #endif //BLACKJACK_PARTIDA_H

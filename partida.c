@@ -59,7 +59,7 @@ void inicializaManoJugador(int mano[10]){
     }
 }
 
-void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
+void partida(Baralles *c, Jugador j, Bot *arrayBots, Crupier crupier){
     int posicionmano=2;
     int mano [10];
     int resultado=0;
@@ -85,18 +85,18 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
         scanf("%d", &apuestaJugador);
     }
 
-    inicializaManoJugador(&mano);
+    inicializaManoJugador(mano);
 
     j.fichas= j.fichas-apuestaJugador;
-    mano[0]= dameCarta(&c);
+    mano[0]= dameCarta(c);
     resultado = mano[0];
-    mano[1] = dameCarta(&c);
+    mano[1] = dameCarta(c);
     resultado = resultado + mano[1];
 
     printf("\nTe quedan: %d fichas\n", retornaFichasJugador(j));
     salidaJugador(mano);
 
-    turnoBots(manoMasAlta, &c, arrayBots);
+    turnoBots(manoMasAlta, c, arrayBots);
 
     if (compruebaBlackJack(resultado) == 1) {
         printf("ENHORABUENA! TIENES BLACKJACK A LA PRIMERA!\n");
@@ -104,9 +104,9 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
         noSePidenMasCartas=1;
         partidaEnJuego=0;
     }
-    manocroupier[0]= dameCarta(&c);
+    manocroupier[0]= dameCarta(c);
     resultadoCroupier = resultadoCroupier+manocroupier[0];
-    manocroupier[1]= dameCarta(&c);
+    manocroupier[1]= dameCarta(c);
     resultadoCroupier = resultadoCroupier+manocroupier[1];
 
     if (compruebaBlackJack(resultadoCroupier) == 1) {
@@ -120,7 +120,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
             scanf("%s", respuesta);
             if (strcmp("no", respuesta) != 0) {
                 posicionmano++;
-                mano[posicionmano - 1] = dameCarta(&c);
+                mano[posicionmano - 1] = dameCarta(c);
                 resultado = resultado + mano[posicionmano - 1];
                 salidaJugador(mano);
                 printf("\nTienes un valor de %i\n", resultado);
@@ -149,7 +149,7 @@ void partida(Baralles c, Jugador j, Bot *arrayBots, Crupier crupier){
             if (juegoCrupier == 1) {
                 if (resultadoCroupier < 17) {
                     posicionmano++;
-                    manocroupier[posicionmano - 1] = dameCarta(&c);
+                    manocroupier[posicionmano - 1] = dameCarta(c);
                     resultadoCroupier = resultadoCroupier + manocroupier[posicionmano - 1];
                     salidaCrupier(manocroupier);
                     if (teHasPasado(resultadoCroupier) == 1) {
