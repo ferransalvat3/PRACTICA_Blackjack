@@ -23,7 +23,6 @@ void PILA_push(Pila *p, int elemento) {
     }
 }
 
-
 void PILA_pop(Pila *p) {
     Nodo *aux;
 
@@ -37,12 +36,11 @@ void PILA_pop(Pila *p) {
 
 }
 
-
 int PILA_top(Pila p) {
     int elemento = -1;
     if (p==NULL) {
         printf("\nError al hacer top, la pila está vacía.\n");
-    } else {
+    }else {
         elemento = p->elemento;
     }
     return elemento;

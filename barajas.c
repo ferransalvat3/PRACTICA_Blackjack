@@ -1,8 +1,8 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 #include "barajas.h"
-
 
 
 Baralles barallaCrea(int numbaralles){
@@ -10,24 +10,36 @@ Baralles barallaCrea(int numbaralles){
     int i = 0;
     int barallaRand;
     int *barallaOrd;
+    int barallaFin[260];
+
 
     c.p = PILA_crea();
 
-    int baralla[52] = {2,3,4,5,6,7,8,9,10,'J','Q','K','A'};
+    int baralla[52] = {2,3,4,5,6,7,8,9,10,'J','Q','K','A', 2,3,4,5,6,7,8,9,10,'J','Q','K','A', 2,3,4,5,6,7,8,9,10,'J','Q','K','A', 2,3,4,5,6,7,8,9,10,'J','Q','K','A'};
 
+            for(i=0;i<numbaralles*52;i++){
+                barallaFin[i]=baralla[i];
+            }
 
             c.numCartes = numbaralles * 52;
             barallaOrd = (int *) malloc(sizeof(int) * c.numCartes);
             for (i = 0; i < c.numCartes; i++) {
-                barallaOrd[i] = baralla[i % 13];
+                barallaOrd[i] = baralla[i % 52];
             }
 
             srand(time(NULL));
-            for (i = 0; i < c.numCartes; i++) {
-                barallaRand = rand() % (c.numCartes);
-                PILA_push(&c.p, barallaOrd[barallaRand]);
-            }
 
+            for (i = 0; i < c.numCartes; i++) {
+                barallaRand = rand() % (numbaralles*52);
+
+                if (barallaFin[barallaRand] != 0){
+                    PILA_push(&c.p, barallaFin[barallaRand]);
+                    barallaFin[barallaRand] = 0;
+                }else{
+                    i--;
+                }
+                //PILA_push(&c.p, barallaFin[barallaRand]);
+            }
 
     return c;
 

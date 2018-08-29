@@ -1,6 +1,7 @@
 
 
 #include <stdio.h>
+
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -9,6 +10,12 @@
 #include "comprobaciones.h"
 
 
+void inicializaCrupier(int manoCrupier[10]){
+    int i=0;
+    for(i=0;i<10;i++){
+        manoCrupier[i]=0;
+    }
+}
 
 void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
 
@@ -45,12 +52,13 @@ void salidaCrupier(int manoCrupier[10]){
     int i=0;
     printf("\nMano del crupier");
     for (i = 0; i < 10; i++) {
-        if(manoCrupier[i]!=0) {
+        if(manoCrupier[i]<21 && manoCrupier[i]>0) {
             printf("[%i]", manoCrupier[i]);
         }
     }
     printf("\n----------------------------");
 }
+
 
 void inicializaManoJugador(int mano[10]){
     int i=0;
@@ -86,6 +94,7 @@ void partida(Baralles *c, Jugador j, Bot *arrayBots, Crupier crupier){
     }
 
     inicializaManoJugador(mano);
+    inicializaCrupier(manocroupier);
 
     j.fichas= j.fichas-apuestaJugador;
     mano[0]= dameCarta(c);

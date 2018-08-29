@@ -1,5 +1,4 @@
 
-
 #include "crupier.h"
 #include <stdio.h>
 

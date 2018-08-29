@@ -30,7 +30,7 @@ Jugador ficherojugador(Jugador j){
     char aux[5];
     int n;
     int i;
-    int totalpartidas ;
+    int totalpartidas;
     
 
     fi = fopen("jugador.txt","rw");

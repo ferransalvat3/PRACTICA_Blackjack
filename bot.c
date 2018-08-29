@@ -128,6 +128,13 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
         }
     }
 
+    for(i=0;i<10;i++){
+        for(ii=0;ii<10;ii++) {
+            arrayBots[i].manobot[ii] = 0;
+        }
+        arrayBots[i].puntuacionCartasBot=0;
+    }
+
     for (i=0;i<returnNumBots();i++){
         if(arrayBots[i].noApuesta==0) {
             arrayBots[i].puntuacionCartasBot = 0;

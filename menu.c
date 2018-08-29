@@ -2,7 +2,7 @@
 
 #include "partida.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 
 
 int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles c) {
@@ -68,12 +68,11 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles c) {
                     case 4:
                         break;
 
-
-
                 }
 
             }
     }
+
     return opcion;
 }
 
@@ -115,6 +114,7 @@ int menuEstadistica(int opcion, Jugador j, Bot *arrayBots, Crupier crupier, Bara
 
         }
     }
+
     return opcion;
 
 }
