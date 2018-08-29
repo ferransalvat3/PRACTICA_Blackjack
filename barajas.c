@@ -38,7 +38,6 @@ Baralles barallaCrea(int numbaralles){
                 }else{
                     i--;
                 }
-                //PILA_push(&c.p, barallaFin[barallaRand]);
             }
 
     return c;

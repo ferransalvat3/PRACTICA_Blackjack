@@ -10,12 +10,7 @@
 #include "comprobaciones.h"
 
 
-void inicializaCrupier(int manoCrupier[10]){
-    int i=0;
-    for(i=0;i<10;i++){
-        manoCrupier[i]=0;
-    }
-}
+
 
 void comprobaciones(Jugador j, int resultado, int resultadoCroupier){
 
@@ -64,6 +59,13 @@ void inicializaManoJugador(int mano[10]){
     int i=0;
     for(i=0;i<10;i++){
         mano[i]=0;
+    }
+}
+
+void inicializaCrupier(int manoCrupier[10]){
+    int i=0;
+    for(i=0;i<10;i++){
+        manoCrupier[i]=0;
     }
 }
 

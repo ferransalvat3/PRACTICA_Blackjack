@@ -82,7 +82,13 @@ int pedirCartasSegunCaracter(int manoMasAlta, Bot b){
             if(b.puntuacionCartasBot<b.cartaMaxima){
                 return 1;
             }
-        } else{
+        }else if(manoMasAlta>21){
+            if(b.puntuacionCartasBot<b.cartaMaxima){
+                return 1;
+            } else{
+                return 0;
+            }
+        }else{
             if(b.puntuacionCartasBot>=manoMasAlta){
                 return 0;
             } else{
@@ -158,7 +164,6 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
                     arrayBots[i].puntuacionCartasBot = arrayBots[i].puntuacionCartasBot + ultimaCarta;
                     arrayBots[i].manobot[ii] = ultimaCarta;
                     ii++;
-                    //manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
                     if (comprobarCartasSegunCaracter(arrayBots[i], ultimaCarta) == 0) {
                         i++;
                         turnoBot++;
