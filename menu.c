@@ -7,7 +7,6 @@
 
 int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles c) {
 
-    //Baralles c;
     Jugador j;
     int numbaralles = 0;
     Pila p;
@@ -49,8 +48,6 @@ int  menuPrincipal(int opcion, Bot *arrayBots, Crupier crupier, Baralles c) {
                         crupier=init0(crupier);
                         partida(&c, j, arrayBots, crupier);
                         break;
-
-
                     case 3:
                         menuEstadistica(opcion,j, arrayBots, crupier,c);
                         break;
