@@ -21,7 +21,7 @@ typedef struct{
 int retornaApuesta(Bot b);
 int pedirCartasSegunCaracter(int manoMasAlta, Bot b);
 void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots);
-void compruebaBotGanador(int resultadoCrupier, Bot *arrayBots);
+void compruebaBotGanador(int resultadoCrupier, Bot *arrayBots, int numeroDeBots);
 void ficherobot(Bot *arrayBots);
 void estadisticasBot(Bot *arrayBots);
 int returnNumBots();

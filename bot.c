@@ -6,6 +6,23 @@
 #include "comprobaciones.h"
 
 
+int returnNumBots(){
+
+    int numeroBots=0;
+
+
+    FILE *fi=fopen("bots.txt","r");
+    if (fi==NULL){
+        printf("ERROR.");
+    }else{
+        fscanf(fi, "%i", &numeroBots);
+        fclose(fi);
+    }
+
+    return numeroBots;
+
+}
+
 void muestraCartasBots(int numBots, Bot *arrayBots){
 
     int i=0;
@@ -123,7 +140,10 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
     int ii;
     int ultimaCarta=0;
     int turnoBot=0;
-    for (i = 0; i <returnNumBots() ; i++) {
+    int numeroDeBots=0;
+
+    numeroDeBots= returnNumBots();
+    for (i = 0; i <numeroDeBots ; i++) {
         if (retornaApuesta(arrayBots[i])==0){
             printf("\nEl bot %s no puede apostar", arrayBots[i].nombre);
             arrayBots[i].noApuesta=1;
@@ -141,7 +161,7 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
         arrayBots[i].puntuacionCartasBot=0;
     }
 
-    for (i=0;i<returnNumBots();i++){
+    for (i=0;i<numeroDeBots;i++){
         if(arrayBots[i].noApuesta==0) {
             arrayBots[i].puntuacionCartasBot = 0;
             for (ii = 0; ii < 2; ii++) {
@@ -155,9 +175,9 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
 
     i=0;
     ii=2;
-    while (turnoBot<returnNumBots()) {
+    while (turnoBot<numeroDeBots) {
         if(arrayBots[i].noApuesta==0) {
-            if (turnoBot < returnNumBots()) {
+            if (turnoBot < numeroDeBots) {
                 ultimaCarta = dameCarta(c);
                 manoMasAlta = comprobarManoMasAlta(arrayBots[i].puntuacionCartasBot, manoMasAlta);
                 if (pedirCartasSegunCaracter(manoMasAlta, arrayBots[i]) == 1) {
@@ -182,10 +202,10 @@ void turnoBots(int manoMasAlta, Baralles *c, Bot *arrayBots){
         }
     }
 
-    muestraCartasBots(returnNumBots(), arrayBots);
+    muestraCartasBots(numeroDeBots, arrayBots);
 }
 
-void compruebaBotGanador(int resultadoCrupier, Bot *arrayBots) {
+void compruebaBotGanador(int resultadoCrupier, Bot *arrayBots, int numeroDeBots) {
     int i = 0;
     if (resultadoCrupier <= 21) {
         for (i = 0; i < returnNumBots(); i++) {
@@ -303,22 +323,7 @@ void estadisticasBot(Bot *arrayBots){
 
 }
 
-int returnNumBots(){
 
-    int numeroBots=0;
-
-
-    FILE *fi=fopen("bots.txt","r");
-    if (fi==NULL){
-        printf("ERROR.");
-    }else{
-        fscanf(fi, "%i", &numeroBots);
-        fclose(fi);
-    }
-
-    return numeroBots;
-
-}
 
 
 

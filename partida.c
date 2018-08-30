@@ -82,11 +82,13 @@ void partida(Baralles *c, Jugador j, Bot *arrayBots, Crupier crupier){
     int i;
     char respuesta[3];
     int manoMasAlta=0;
+    int numeroDeBots=0;
 
 
     srand(time(NULL));
 
 
+    numeroDeBots= returnNumBots();
 
     printf("Cuantas fichas vas a apostar?\n");
     scanf("%d", &apuestaJugador);
@@ -207,7 +209,7 @@ void partida(Baralles *c, Jugador j, Bot *arrayBots, Crupier crupier){
         }
     }
 
-    compruebaBotGanador(resultadoCroupier, arrayBots);
+    compruebaBotGanador(resultadoCroupier, arrayBots, numeroDeBots);
     escribirFichero (j);
 
 }
